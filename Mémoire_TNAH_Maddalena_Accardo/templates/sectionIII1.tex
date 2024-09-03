@@ -1,0 +1,269 @@
+\chapwithshorttitle{De la gestion des données à la modélisation}{Conception d'un jumeau numérique, du stockage des données à sa modélisation}{Conception d'un jumeau numérique, du stockage des données à sa modélisation} 
+
+Une fois que les données ont été recensées, le processus de structuration et de modélisation de l'outil futur peut commencer.
+
+    \secwithshorttitle{Stockage et partage}{Enjeu du stockage et du partage des données}{Enjeu du stockage et du partage des données}  
+
+        \subsection{Conception d’une plateforme de partage adapté}
+
+Avant de réaliser un jumeau numérique, il faut s'assurer d'harmoniser les données destinées à venir l'alimenter et les réunir en un seul endroit. Cette nécessité s'explique également par le besoin d'avoir une vue d'ensemble sur la totalité des éléments produits, et également permettre qu’elles soient partagées entre les différents acteurs qui les produisent.\\
+
+C’est dans ce but qu’une réflexion sur une plateforme de partage entre les différents acteurs du projet C-ADER a été entamée. À ce jour, les données produites ne sont pas encore échangées entre les différentes institutions, ce qui ralentit le processus de recherche et complexifie les rapports entre les différentes parties. En effet, les fichiers produits dans le cadre du projet C-ADER sont enregistrés sur les disques durs des ordinateurs reliés aux machines ; c’est le cas par exemple de l’Institut Jean Lamour. Par souci de sécurité, ils peuvent aussi être sauvegardés sur les disques durs individuels des acteurs du projet (C2RMF, institut Jean Lamour)), ou encore sur les serveurs internes des institutions (C2RMF, musée de l’Air et de l’espace, institut de Soudure). Les données sont par conséquent séparées les unes des autres et gagneraient à être mises en commun.\\
+
+Plusieurs options de stockage ont été envisagées dans le cadre du projet C-ADER, et deux propositions principales ont émergé. La première envisage l'utilisation d'un NAS (Network Attached Storage). \footnote{Pour une définition plus détaillée, voir ici : \gls{NAS}.\footcite{ServeurStockageReseau2023}}. La seconde envisage le recours à une solution de cloud\footnote{Pour une définition plus détaillée, voir ici : :\gls{Cloud}.\footcite{CloudComputingQu2024}}. 
+Initialement, il avait été proposé de stocker les données sur le NAS du Musée de l'Air et de l'Espace (MAE). Cependant, cette solution a été rapidement abandonnée. La possibilité d'ouvrir l'accès au NAS du musée aux acteurs externes impliqués dans le projet n'est actuellement pas envisageable. Une autre possibilité envisagée consistait à identifier les personnes externes devant avoir accès au serveur interne du Musée de l'Air et de l'Espace, pour leur fournir des ordinateurs portables configurés à cet effet. Cette approche a donc été abandonnée en considérant le NAS uniquement comme l'espace de stockage des données du Musée de l'Air et de l'Espace. Par ailleurs, l'espace de stockage disponible ne permettait pas d'intégrer les données du projet C-ADER, dont la volumétrie est encore inconnue à ce jour.\\
+
+Compte tenu des limites des solutions NAS, il a été envisagé de recourir à une plateforme de partage de données sur le cloud. Cette approche présente plusieurs avantages, notamment la flexibilité d'accès pour les différents acteurs du projet et une capacité de stockage plus adaptée aux besoins du projet. En attendant de finaliser cette solution, les acteurs du projet continuent de stocker leurs données sur leurs NAS respectifs. Cette solution provisoire permet de maintenir la continuité des travaux tout en recherchant une solution de partage de données plus adéquate.
+
+        \subsection{Assurer l'accessibilité, la sécurité et les capacités de stockage}
+
+Dans le cadre de la préparation d'un outil de stockage de type cloud, plusieurs éléments doivent être pris en considération. Il est essentiel de déterminer combien et quels types de données seront stockées sur la plateforme cloud, afin de définir le volume de stockage nécessaire, et d'identifier les potentielles données nécessitant des niveaux de sécurité particuliers. 
+
+L'accessibilité et la sécurité des données sont des enjeux à prendre en compte lors du choix d'un cloud. Les données à y déposer doivent pouvoir n’être accessibles que par leurs producteurs. Cela implique par exemple la mise en place de différents niveaux de permission et d'authentification pour s'assurer que seules certaines personnes autorisées puissent accéder aux informations sensibles.
+
+Pour aboutir à la vision d’ensemble précise de ces flux de données entre acteurs, il convient de se poser les questions suivantes :\\
+\begin{itemize}
+	\item Combien de personnes doivent avoir accès à la plateforme de données ?
+	\item Qui aura accès exactement à quel document ? 
+	\item Qui va consulter quelle donnée ?
+	\item Doit-il y avoir des données restreintes pour d’autres acteurs ?
+	\item Comment coordonner les versements en sachant qui peut verser quoi ?
+\end{itemize}
+
+Le but est de pouvoir prévoir le nombre de licences avant de pouvoir choisir un outil, et de savoir si des mesures de restriction entre acteurs doivent être mises en œuvre, dans le cas où certaines données devraient être soumises à un secret professionnel par exemple. Dans le cadre du projet C-ADER, ces questionnements ont été simplifiés par l’accord des différents acteurs concernant la nécessité d’une mise en commun totale de leurs données entre eux. Les quatre acteurs doivent donc pouvoir consulter librement les documents des autres. La future plateforme de données n’aura donc pas à prévoir de restrictions.\\
+
+Une plateforme de partage de données doit également répondre à des besoins de sécurité, qu’il s’agisse de la protection de la confidentialité d’une donnée, ou de la protection de son intégrité et de sa disponibilité. Les données doivent  être conservées de telle sorte que les données ne soient pas perdues. En outre, le respect de la sécurité peut passer par la mise en place de mesures de protection contre des menaces potentielles telles que les cyberattaques, les pertes de données et les accès non autorisés. Assurer la sécurité des données consiste donc à s'enquérir des éléments suivants : \\
+
+\begin{itemize}
+	\item La confidentialité des informations, qu’elles soient professionnelles ou personnelles
+	\item La protection des données à caractère personnel et / ou sensibles collectées, produites ou gérées par la structure (données scientifiques et techniques, données de gestion administrative, données individuelles) ;
+	\item La protection juridique (risques administratifs, risques pénaux, perte d’image de marque)\footcite{hadrossekGuideBonnesPratiques}.
+\end{itemize}
+
+Dans le cadre du projet, le souci de sécurité sera le principal point à assurer lors de la recherche d'un cloud, les différents acteurs du projet ayant convenu de pouvoir consulter sans restrictions les données que chacun produira. Le projet viendra par exemple accueillir des données relatives au secret industriel produites principalement par l’Institut de Soudure. De même, le Musée de l’Air et de l’Espace, relevant du ministère des armées, doit répondre à des exigences de sécurité particulières, telles qu’un hébergement sur le sol français, ou du moins en Europe.\\
+
+Il est également essentiel de connaître le \textbf{volume des données} qui seront déposées. Ces informations sont nécessaires pour pouvoir déterminer selon quels critères un outil sera choisi. Afin d’anticiper ces éléments, il convient de poser les bonnes questions pour choisir l’outil le plus adapté, les plus importants étant :\\
+\begin{itemize}
+      \item Quel volume approximatif doit-on sauvegarder ? Selon quelle périodicité (quotidienne, hebdomadaire, mensuelle)
+      \item Les infrastructures informatiques ont-elles suffisamment d’espace de stockage disponible ?
+      \item Les données devront-elles être consultées fréquemment ? en temps réel ?
+\end{itemize}
+
+Il est important de souligner que le volume de données à déterminer est encore globalement inconnu au sein du projet C-ADER. En effet, le volume d’un fichier d’analyse peut grandement varier en fonction de l’élément analysé et de la précision de l’analyse. Par conséquent, il est difficile de prévoir une volumétrie exacte. Sur ces principes, il a été choisi de partir sur une option permettant de louer et d’agrandir progressivement la plateforme de partage et de sockage des données.\\
+
+        \subsection{Organisation des flux de données : structurer la donnée au sein de la plateforme d’échange}
+
+En outre, une réflexion approfondie sur l'organisation des données au sein de la plateforme de stockage est indispensable pour faciliter l'accès aux informations, et assurer une gestion plus efficace des données. Le plan de classement est par exemple un outil adéquat pour y réfléchir. 
+\begin{quote}
+    « Il ordonne l’ensemble de ces activités et les documents qui en sont issus suivant une organisation logique, souvent hiérarchique, qui sert de colonne vertébrale au référentiel de conservation.»\footcite{chabinGlossaireArchivage2010}
+\end{quote} 
+Il s’adapte au contenu à organiser, en fonction des documents et de leurs caractéristiques. Le but est de générer une structure hiérarchique adaptée, une fois encore, aux besoins des utilisateurs. Par conséquent, l’organisation de l’outil de travail doit être simple et intuitive.\\
+
+L’enjeu sous-jacent du plan de classement à proposer dans le cadre du projet C-ADER est de localiser précisément les données d’analyse sur l’avion étudié, et de rendre accessibles les informations existantes pour chaque pièce de l’avion. En outre, le plan de classement doit respecter les besoins des acteurs, à savoir se focaliser sur les objets analysés (les avions et leurs échantillons, les mock-up et coupons).\\
+
+Une première proposition, qui organisait les fichiers en fonction des différents acteurs du projet, a été écartée. À la place, le choix a été de partir sur une structure qui privilégiait les types d’objets analysés, puis les avions sur lesquels ils portaient.\\
+
+Ainsi, on trouve quatre fichiers principaux : 
+\begin{itemize}
+      \item Le premier dossier concerne les archives courantes relatives au déroulement administratif du projet et à la gestion. 
+      \item Les trois autres dossiers principaux se basent sur les types d’éléments analysés : les avions (ce dossier comprend ainsi les données d’analyses effectuées sur les avions complets comme sur des échantillons prélevés), les mock-up, et des données de veille sanitaire visant à analyse les conditions de conservation du Musée de l’Air et de l’Espace.
+\end{itemize}
+Le parti pris vise à faire figurer la diversité des objets d’analyse tels que l'avion entier, les échantillons d'avions et les maquettes (mock-up) par plusieurs dossiers dans le plan de classement.\\
+
+Pour l’organisation interne du dossier relatif aux avions, deux approches ont été proposées ; il sera nécessaire d’avoir tout d’abord un retour des acteurs afin de déterminer laquelle sera la plus efficace. La première approche consiste à partir de l'avion en tant qu'entité centrale, puis à indiquer dans de nouveaux fichiers les diverses parties dont il est composé (ensemble, fuselage avant, central, arrière, ailes droites et gauches, empennage). Dans chacun de ces dossiers, se trouveraient trois dossiers : un dossier relatif aux techniques d’analyse dont il a fait l’objet, un autre concernant sa documentation et un dernier pour ses archives. L’avantage de cette méthode de classement est de bien pouvoir situer chaque donnée d'analyse effectuée sur l’avion ou sur un de ses échantillons, dans la perspective d'un jumeau numérique incarnant l'appareil. La deuxième approche serait plus généraliste. Elle consiste à regrouper les données directement en données d’analyse, documentation et archives : c’est à ce niveau qu’apparaîtraient les trois dossiers. Ensuite seulement viendraient les dossiers indiquant les diverses parties de l’avion. Cela permettrait notamment d’éviter la création de dossiers vides, en ne créant des dossiers de parties d’avion que lorsque cela est nécessaire.\\
+
+L’organisation du dossier consacré au mock-up est plus simple. Le but est d’attribuer à chacun un nom, et de ranger leurs fichiers d’analyse dans le dossier qui leur est consacré.\\
+
+Le dernier dossier intitulé « veille sanitaire » répertorie sous forme de dossiers différents avions et bâtiments sélectionnés au Musée de l’Air et de l’Espace, où les données de corrosion et de températures sont relevées. C’est également dans ces dossiers que seront rangés les photos des mock-ups qui permettront de déterminer les conditions de conservation des espaces du musée.\\
+
+L’idéal serait de trier les dossiers contenant les données d’analyse par ordre chronologique. Cela sera rendu possible par la mention de la date dans les noms de fichiers.\\
+
+Le niveau de détail de l’arborescence a été volontairement peu approfondi pour laisser la possibilité aux acteurs du projet d’avoir une certaine marge de manœuvre dans la manipulation des fichiers. Ainsi, l'indication relative à la nature des données (brutes, intermédiaires ou finales) n'est pas retranscrite sous forme de dossiers, afin d'éviter de fragmenter les résultats d'une même analyse. En outre, les acteurs du projet n’ont pas tous la même définition d’une donnée brute, intermédiaire ou traitée, ce qui aurait entraîné des complications. Ce type d'information est plutôt intégré directement dans le nom du fichier concerné.\\ 
+
+De plus, le choix a été fait de ne pas trier la documentation et les archives par typologie documentaire, compte tenu que tous les documents susceptibles de venir alimenter les données du jumeau numérique ne sont pas encore connus et ne rentrent peut-être pas dans une catégorie particulière. Il est peut-être préférable d’indexer les documents afin de mieux les différentier.\\
+
+Le modèle d’arborescence peut entraîner des problèmes de doublonnage : deux avions sont issus du même modèle. C’est le cas des B707 et des Mirages IV. L’avion qui contiendra toute la documentation relative au modèle B707 sera le château de Maintenon. L’avion qui contiendra toute la documentation relative au Mirage IV est encore à déterminer ; ce sera probablement l’avion le plus étudié des deux.\\
+
+Enfin, le quatrième fichier intitulé « veille sanitaire » répond au besoin de distinguer deux types de mock-up. Les premiers, analysés et volontairement corrodés, sont traités dans le troisième dossier principal (intitulé « mock-up »). Les deuxième types de mock-up correspondent à des plaques d’aluminium déposées dans certains endroits du musée afin d’en évaluer les conditions de conservation et la rapidité du processus de corrosion dans ces milieux. Il a été estimé, après échange avec les différents acteurs du projet, qu’il était plus simple de séparer ces deux types d’objets analysés. Par conséquent, ces derniers types de mock-up sont rangés dans les dossiers qui correspondent aux lieux où ils sont déposés. En outre, d'autres documents relatifs à l’étude des lieux de conservation du Musée de l'Air et de l'Espace, comme les données climatiques, ont été déposés à cet endroit.\\ 
+
+    \secwithshorttitle{Modélisation des données}{Proposition pour une architecture du jumeau numérique à venir : modélisation}{Proposition pour une architecture du jumeau numérique à venir : modélisation}  
+    
+Une fois les problématiques de partage et de stockage résolues, la conception d’un jumeau numérique requiert une phase de modélisation à la fois conceptuelle et relationnelle, phase qui détermine la structure et les liens des données entre elles. La modélisation conceptuelle sert à représenter de manière abstraite et globale les données ainsi que leurs relations. Elle définit différentes entités, qui sont les objets ou concepts importants à représenter dans le modèle, ainsi que leurs interactions entre elles qui figureront dans une base de données. La modélisation relationnelle, quant à elle, traduit cette représentation en une structure exploitable pour une base de données. Elle organise les données en tables\footnote{Pour une définition plus détaillée, voir ici : \gls{Table}} reliées entre elles par des relations, en vue de leur implémentation dans une base de données relationnelle. Cette approche propose une représentation détaillée du futur outil, assurant une organisation cohérente et accessible des données dans le but d’y effectuer des requêtes\footcite{kreuzerArtificialIntelligenceDigital2024}.
+
+        \subsection{La modélisation conceptuelle des données} 
+        
+La modélisation conceptuelle effectuée dans le cadre du projet C-ADER se veut une conception théorique de ce que serait le jumeau numérique d'un avion en fonction des éléments connus à ce jour. L'idéal serait de pouvoir appliquer cette modélisation aux autres avions du projet. Elle se concentre sur l'avion en tant qu'élément central, autour duquel gravitent diverses entités et relations, et cherche à mettre en avant à la fois la diversité des objets étudiés, ainsi que les analyses dont un avion fait l'objet. La modélisation étant encore en cours de réflexion, bon nombre d’éléments ne sont pas finalisés, à savoir les noms des entités, des attributs ou encore les cardinalités. Les dénominations se veulent les plus parlantes possibles, et seront plus tard affinées.\\
+
+Les entités principales qui la compose sont les suivantes :
+
+		\subsubsection{avion} 
+\begin{itemize}
+    \item Ses attributs sont : ID, nom, matricule, numéro d'inventaire, lieu de conservation. Il est abordé dans cette entité comme un objet patrimonial, et non un objet d’analyse.
+    \item Ses relations avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Il fournit des objets d’analyse.
+        \item Il est constitué de parties de l'avion.
+        \item Il dispose de documentations et d’archives.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{objet analysé}
+ \begin{itemize}
+    \item Ses attributs sont : ID, longueur, largeur, épaisseur, type d'objet analysé, ID\_parties de l'avion, nature de la corrosion, ID\_avion, ID\_composition. Dans cette entité, on regroupe les échantillons d’avions prélevés et les mock-up synthétiques. Les attributs commençant par ID, tels que ID\_parties de l'avion, ID\_avion, ou ID\_composition servent à indiquer qu’il s’agit d’éléments faisant référence à d’autres entités, afin d’éviter les redondances. La variété des objets d’analyse du projet a posé un certain nombre de questions pendant la modélisation, la première étant s’ils allaient être tous modélisés en tant qu’une seule entité ou de plusieurs. La question reste encore en suspens, et sera à trancher avec l’aide de la modélisation relationnelle.
+    \item Ses relations avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Il est composé de composition/matériaux.
+        \item Il est localisé (ou non, s’il s’agit de mock-up) sur l'avion.
+        \item Il fait l'objet d’expériences, et est donc relié à la table correspondante.
+    \end{itemize}
+\end{itemize}
+\subsubsection{composition/matériaux}
+ \begin{itemize}    
+	\item Ses attributs sont : ID, composant. Le but de cette table est de recenser les différents composants chimiques, tels que l’aluminium, le fer, etc. qui se retrouvent sur un échantillon, et qui servent à déceler ou non la présence d’un état corrodé.
+	\item Hormis la table « objet analysé », il n’a pas d’autres relations.
+\end{itemize}
+\subsubsection{Documentation et archive}
+\begin{itemize}
+    \item Ses attributs sont : ID, typologie documentaire, consultable (s’il est librement consultable ou non), côte/numéro d’inventaire, ID\_institution, ID\_avion, ID\_type de doc complémentaire, lien vers le contenu. Le choix a été fait de distinguer cette entité, contenant les documents déjà existants de l’avion, de l’autre entité contenant les fichiers d’analyse, puisque leurs attributs sont radicalement différents.
+    \item Ses relations avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Composé de types de documents complémentaires.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Type de documents complémentaires}
+\begin{itemize}
+    \item Ses attributs sont : ID, type de document. Cette entité (dont le nom est à retravailler), vient répertorier le type de document qu’on pourrait trouver dans les documents et les archives. Le choix a été fait de la mettre à part afin d’éviter des récurrences ou des renvois à un même élément sous différentes formes dans une même table. Par exemple, éviter que le mot « publicité » ne soit écrit de la façon suivante : pub, publicités, pub, ce qui viendrait gêner les requêtes.
+    \item Cette entité n’est que reliée à l’entité documentation et archive.
+\end{itemize}
+\subsubsection{Expérience (run)}
+\begin{itemize}
+    \item Ses attributs sont : ID, date, nom de l'expérience, description, ID\_contexte expérimental, ID\_individu. Il était important de faire figurer cette entité dans la mesure où le nom et le type d’expérience seront deux critères de recherche importants dans le cadre du jumeau numérique.
+    \item Ses relations avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Elle renvoie à un contexte expérimental.
+        \item Elle porte sur un ou des objets analysés.
+        \item Elle nécessite des Traitements sur objets et Logiciel.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Contexte expérimental}
+\begin{itemize}
+    \item Ses attributs sont : ID, conditions d'expérience, temps. Cette entité, quoiqu’intéressante lorsqu’on aborde le jumeau numérique sous l’angle de l’analyse scientifique, rentre peut-être dans un niveau de détail qui n’intéressera peut-être pas le grand public. Ces informations ont été modélisées, mais il est envisagé de les laisser plutôt dans les métadonnées.
+    \item Ses relations avec d’autres entités sont les suivantes : 
+    \begin{itemize}
+        \item Il renvoie à une expérience.
+        \item Il nécessite la plupart du temps une préparation de l’objet, aussi appelée traitement de l’objet.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Préparation de l’objet/Traitements sur objets}
+\begin{itemize}
+    \item Ses attributs sont : ID, type de traitement. La nécessité d’indiquer les différents traitements qu’un objet a pu connaître avant une expérience fait partie des critères exigés pour les acteurs du projet. Cela permet d’expliquer l’état du matériau avec lequel on travaille, ainsi que les résultats qui sont obtenus. Néanmoins, cette indication pouvait également être confondue avec l’entité « préparation de l’objet ». A ce jour, aucune solution satisfaisante n’a été trouvée. Est-ce qu’indiquer les traitements effectués sur les objets est vraiment nécessaire pour la constitution du jumeau numérique ? Si c’est le cas, ne pourrait-on pas simplement faire un renvoi vers la table expérience afin d’indiquer ce qui a déjà été effectué ?
+    \item Ses relations avec d’autres entités sont les suivantes : 
+    \begin{itemize}
+        \item Il implique un contexte expérimental.
+        \item Il implique également une expérience, puisque la préparation d’un objet se fait dans ce contexte.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Instrument (machine)}
+\begin{itemize}
+    \item Ses attributs sont : ID, nom de la machine, version utilisée, ID\_Institution (pour expliciter le nom de son propriétaire). Là aussi, l’entité a été ajoutée dans une logique d’exhaustivité afin de bien retranscrire le contexte de production d’un fichier.
+    \item Ses relations avec d’autres entités sont les suivantes : 
+    \begin{itemize}
+        \item L’instrument analyse l’objet d’analyse.
+        \item Il est manipulé au cours d’une expérience.
+        \item Il lance généralement (mais non systématiquement) un logiciel.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Logiciel}
+\begin{itemize}
+    \item Ses attributs sont : ID, nom, licence, coût, version utilisée, ID\_institution. Les réflexions pour cette entité sont les mêmes que pour l’entité « Instrument ». Si l’information est très intéressante pour un chercheur, elle ne le sera pas forcément pour le grand public.  Il faudra donc soigneusement choisir le type de public visé par l’outil numérique, et choisir à quel degré de précision l’on souhaite aboutir.
+    \item Les relations de cette entité avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Il génère des fichiers.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Fichier}
+\begin{itemize}
+    \item Attributs : ID, nom, format, état des données, ID\_institution, ID avion, lien externe vers le document. Cette entité représente les fichiers d’analyses qui seront produits tout au long du projet. C’est l’une des entités les plus importantes de la modélisation. L’attribut « format » est ici discutable, venant apporter des informations qui risquent d’être peut-être trop précises, et peu exploitables. L’appellation « état des données » vise à indiquer si une donnée est à l’état brut, intermédiaire, ou traitée.
+    \item La seule relation de cette entité est avec l’entité logiciel.
+\end{itemize}
+\subsubsection{Parties de l'avion/localisation sur l'avion}
+\begin{itemize}
+    \item Ses attributs sont : ID, parties de l'avion (ensemble, fuselage avant, arrière, central, aile droite, gauche, empennage, dérive). Cette entité permet de localiser plus précisément les objets analysés lorsqu’ils sont issus d’un avion.
+    \item Les relations de cette entité avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Cette entité renvoie à des éléments qui constituent un avion.
+        \item Les parties d’un avion sont à localiser sur certains objets à analyser.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Institution}
+\begin{itemize}
+    \item Ses attributs sont : ID, nom, type, adresse. Le type de l’institution revient à indiquer s’il s’agit d’un établissement public ou privé. L’entité institution revient souvent dans la modélisation, il était donc essentiel de l’y faire figurer.
+    \item Les relations de cette entité avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item L’institution est affiliée à plusieurs individus.
+        \item Elle fait intervenir des groupes de recherche, qui travaillent principalement sur le projet mené, donc ici C-ADER.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Groupe de recherche}
+\begin{itemize}
+    \item Ses attributs sont : ID, nom, référence.
+    \item Les relations de cette entité avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Un groupe de recherche dépend d’une institution.
+        \item Un groupe de recherche est composé de plusieurs individus.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Individu}
+\begin{itemize}
+    \item Ses attributs sont : ID, nom, prénom, profession. Il s’agit des scientifiques, des conservateurs, et de tous les professionnels engagés dans le projet.
+    \item Les relations de cette entité avec d’autres entités sont les suivantes :
+    \begin{itemize}
+        \item Un individu est affilié à une institution.
+        \item Un individu peut faire partie d’un ou de plusieurs groupes de recherche.
+    \end{itemize}
+\end{itemize}
+
+Le choix initial de partir d'un avion pour la modélisation conceptuelle a été motivé par le fait que le jumeau numérique en représenterait un, même si la conception finale du jumeau numérique est encore en discussion (soit un avion complet, soit uniquement des parties d’avion scannées). Afin d'avoir une vision d'ensemble du futur outil, il convient donc de modéliser l'avion entier et tous les éléments qui y sont relatifs. 
+
+        \subsection{De la modélisation relationnelle des données et de la nécessité d’une base de données}
+      
+Une modélisation relationnelle du futur jumeau numérique a été entamée dans le cadre du projet C-ADER. L’objectif était de partir de la modélisation conceptuelle, c’est-à-dire de reprendre les entités et les attributs décrits, pour ensuite approfondir leur relation. Malheureusement, cette modélisation n’a pas été finalisée. Le travail proposé se contente donc de présenter les différentes tables, leurs attributs et leur nature. Les relations entre les tables n’ont pas encore été envisagées.
+On retrouve ainsi les tables « institution », « individu » et « groupe de recherche » pour décrire les acteurs du projet C-ADER.\\
+
+En revanche, les tables consacrées aux objets du projet C-ADER diffèrent quelque peu des entités indiquées dans la modélisation conceptuelle. On y retrouve une table « avion », également étoffée par une autre table qui répertorie les différentes parties de l’avion (fuselage avant, central, arrière, aile gauche, aile droite, etc.). La principale différence avec la modélisation conceptuelle est la séparation de l’entité « objet analysé (échantillon, mock-up) » en deux tables, « mock-up » et « échantillons avion ». Elles partagent chacune des caractéristiques suffisamment distinctes pour être séparées.\\
+ 
+Les entités « documentation et archives », ainsi que « types de documents complémentaires » sont aussi représentés dans la modélisation relationnelle. Seul le nom de la table « documentation et archive » a été modifié en « documents complémentaires » pour être plus général. Une table « fichier » vient également s’inspirer de la modélisation conceptuelle. La possibilité de réunir les deux tables « fichier » et « documents complémentaires » a été envisagée, mais reste encore à l’état de réflexion, dans la mesure où les deux types de documents restent très différents.\\
+ 
+Les autres entités, « expérience », « contexte expérimental », « préparation de l’objet », « machine », « composition », et « logiciel » sont aussi reprises dans la modélisation relationnelle. Néanmoins, le processus de construction de cette modélisation doit s’attarder sur ces éléments, dans la mesure où certaines de ces tables peuvent sembler superflues. Par exemple, la table « contexte expérimental » est intéressante, mais ne présente pas forcément un intérêt majeur pour un jumeau numérique, et risque de rencontrer des problèmes de précision ou de répétition de contenu. Il faudra évaluer par la suite sa pertinence. De même, des questions identiques se posent concernant la table « préparation de l’objet ». Elle vise initialement à garantir l’historique d’un objet d’analyse : cette table permettrait de lister les préparations préalables d’un objet avant l’expérience. Cette table présente également le risque de trop rentrer dans le détail, voire de se répéter. En effet, si l’on souhaite visualiser les expériences précédentes d’un objet d’analyse, il suffira de le relier avec la table « expérience » par le biais d’une clé étrangère. Pour rappel, une clé étrangère (ou foreign key) est un champ dans une table qui établit un lien avec la clé primaire d'une autre table. Elle permet de créer une relation entre les deux tables en assurant la cohérence des données. Concrètement, elle garantit que la valeur d’un enregistrement dans une table correspond à une valeur existante dans l’autre table afin d’éviter les incohérences.\\
+
+Cette modélisation relationnelle permet d'ores et déjà de réfléchir à la conception d'une base de données spécifique où se trouveraient les données du jumeau numérique. Une base de données est un espace dans laquelle il est possible de stocker des données (éléments textuels, ressources numériques, etc.) de façon structurée et avec le moins de redondance possible. Pour être aisément accessibles sous forme de requête par les usagers, ces données doivent être indexées et organisées selon des critères fixés par le producteur. 
+
+    \secwithshorttitle{Multiplicité d'outils}{Au-delà du jumeau numérique : multiplicité outils}{Au-delà du jumeau numérique : multiplicité outils}
+
+        \subsection{Proposition pour la plateforme de valorisation}
+
+Au delà de la gestion des données pendant la durée du projet, et de la réflexion sur l'architecture possible du jumeau numérique, il est intéressant de proposer en guise de perspective et de remise en contexte la manière dont le futur jumeau numérique et les données du projet seront rendues accessibles.\\
+
+Une première réflexion a donc été menée autour de la plateforme qui viendra à la fois valoriser le projet, rendre accessible les jumeaux numériques des avions et les données correspondantes. Bien que cette réflexion en soit encore à un stade préliminaire, éloignée de la phase de conception et de codage, l’objectif est d’identifier les informations à intégrer et les outils potentiels à utiliser.\\
+
+Cette plateforme de valorisation prendrait la forme d’un site web accessible à tous, visant à mettre en lumière les résultats du projet C-ADER et les données produites par la recherche. Il serait donc bienvenue d’y décrire le projet C-ADER, d'en détailler les objectifs, les parties prenantes ainsi que les objets d’étude dans une page de présentation. Chaque avion disposerait d’une page où serait regroupé le maximum d’informations le concernant ; les jumeau numérique y serait présenté également. L’idéal est que le jumeau numérique puisse faire apparaître les fichiers qui y sont liés sous forme de documents ou de PDF.\\
+ 
+La manière dont les données seront rendues accessible a beaucoup interrogé. Étant donné la diversité des formats de données, il sera fondamental de définir comment ces dernières seront présentées sur la plateforme finale de valorisation. Les données pourraient être soit accessibles par le biais du jumeau numérique, en cliquant par exemple dessus pour faire apparaître des documents, soit triées et mises à disposition dans un onglet à part. Cette proposition est loin d’être définitive. La méthode de valorisation et d’accessibilité des données reste à définir plus en profondeur.\\
+
+Le site de valorisation du projet devrait adopter une structure et des outils technologiques classiques, avec au minimum un menu proposant des onglets cliquables et un moteur de recherche. Pour les pages consacrées aux avions et aux jumeaux numériques, un filtrage par facettes pourrait être envisagé pour faciliter les recherches avancées et l’extraction des données.\\
+ 
+Bien qu’il soit recommandé d’élaborer un cahier des charges précis, il est également important de rester flexible et de ne pas entrer trop dans les détails à ce stade Les spécifications plus techniques seront proposées par l’ingénieur en charge du développement du jumeau numérique et du site, qui sera à même de faire des recommandations pertinentes. Cette approche vise à garantir que l’outil réponde au mieux aux besoins en termes de fonctionnalité et d’ergonomie, tout en laissant une marge de flexibilité pour éviter de figer la conception et permettre des évolutions vers des solutions encore plus adaptées.\\
+
+Par la suite, ces données ainsi que les jumeaux numériques pourraient être injectés dans un site web qui viendraient les mettre en valeur et présenter le projet. Le but sera avant tout d’assurer l’interconnexion entre les jumeaux numériques et leurs données.\\
+
+La première étape consistera à identifier les publics cibles et les objectifs de médiation. Ainsi, cette proposition de plateforme de valorisation est plus adaptée au grand public, plutôt qu’à des chercheurs. Il n’y a pas la possibilité de réaliser des requêtes directement dans les données par exemple, et certains fichiers ne sont pas directement accessibles. C’est la raison pour laquelle ce projet sera également à revoir, quitte à ne pas mettre les données accessibles sur ce site web, mais à les mettre dans une base de données requêtable dont le lien serait indiqué.
+
+        \subsection{Plusieurs outils proposés pour le projet C-ADER}
+        
+A partir des différents éléments proposés, un premier constat mérite d'être fait. Initialement, il était attendu que le jumeau numérique soit capable de représenter l'avion en 3D de manière interactive, avec chaque partie de l'avion cliquable, et qui afficherait les données correspondantes à la partie de l’avion sélectionnée. Ce jumeau numérique devait servir à la fois d’espace de valorisation patrimoniale et scientifique, et d’outil de travail où les différentes données des acteurs auraient été centralisées et accessibles.\\
+
+Or, cette conception a évolué au gré de l’avancement du projet et des défis techniques. Le jumeau numérique a permis d'exprimer avant tout le besoin d'une plateforme de partage où les acteurs peuvent directement déposer leurs données. Cette plateforme s’impose comme un outil, qui doit permettre d’échanger, de stocker et de partager les données rapidement et de façon sécurisée tout au long du projet. L'idée d'utiliser le jumeau numérique comme un outil de travail ne doit pas être totalement écartée. On peut imaginer qu’au terme du projet, une fois les données globalement toutes produites et injectées dans la modélisation selon un processus défini, les acteurs puissent continuer à injecter des données et à avoir accès à un plus grand nombre d’informations que le grand public par exemple. Ce double niveau d’accessibilité pourrait se rapprocher de l’idée initiale évoquée par les acteurs du projet C-ADER.\\
+
+Par ailleurs, le jumeau numérique tel qu’il est conçu pour l’instant ne répond pas encore pleinement aux exigences d'accessibilité des données de recherche imposées par le cadre juridique français. Les données du projet telles que présentées par le biais du jumeau numérique conviennent davantages au Grand public, mais moins à des chercheurs souhaitant accéder à la donnée brute. Pour répondre à cet enjeu, il est intéressant d'envisager que le jumeau numérique puise ses informations et ses fichiers dans une base ou un entrepôt de données, et que cet espace soit requêtable. Cela permettrait aux chercheurs, qu'ils souhaitent reproduire des expériences ou s'informer sur le projet et les données utilisées, de le faire aisément.\\ 
+
+Le jumeau numérique exprimée dans le projet devient alors le tremplin révélateur des défis liés à la donnée, et des besoins techniques à mettre en oeuvre pour pouvoir valoriser les résultats de la recherche.
