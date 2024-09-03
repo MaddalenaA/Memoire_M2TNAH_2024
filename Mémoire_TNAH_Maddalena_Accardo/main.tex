@@ -1,0 +1,338 @@
+%%%%%%%%%%%%% Partie obligatoire du préambule
+\documentclass[a4paper,12pt,twoside]{book}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage[french]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES UTILISÉS
+
+\usepackage{csquotes} % les guillemets français
+\usepackage{lettrine} % faire une lettrine (pas obligatoire)
+
+% Chargement du package biblatex
+\usepackage[style=enc,sorting=nyt,maxbibnames=10]{biblatex} % charger le style de l'EnC
+\addbibresource{bibliographie/jumeauNumérique.bib}
+\addbibresource{bibliographie/ExemplesJN.bib}
+\addbibresource{bibliographie/gestionDesDonnées.bib}
+\addbibresource{bibliographie/Modélisation.bib}
+\addbibresource{bibliographie/Divers.bib}
+\nocite{*}
+\defbibnote{intro}{Cette bibliographie présente toutes les ressources utilisées, de tout type, citées ou non, par simple ordre alphabétique.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AJOUT DE PACKAGE
+\usepackage{graphicx} % Pour les insertions d'images
+\usepackage{adjustbox} % Pour adapter la taille des images
+\usepackage{lscape}
+\usepackage{float}
+\usepackage{tabularx} % Package pour un tableau ajustable
+%\usepackage{tocbibind} % pour l'inclusion de la liste des figures etc à la table des matière
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONFIGURATION DE MISE EN PAGE
+
+%%%%%% Les compteurs (sections, subsections, etc)
+\renewcommand{\thesection}{\Roman{section}.}%On ne fait apparaître que le numéro de la section
+\renewcommand{\thesubsection}{\arabic{subsection}.}%subsection en chiffres arabes
+\renewcommand{\thesubsubsection}{\alph{subsubsection}.}%subsubsection en lettres minuscules
+%Si l'on veut faire apparaître les subsubsection dans le table des matières (à commenter sinon)
+\setcounter{tocdepth}{3}
+
+%%%%%% Mise en page École des chartes
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing % interligne de 1.5
+\setlength\parindent{1cm}
+
+% Pour retirer le titre courant d'une page vide avant un chapitre
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+
+%%%%% Mise en forme des headers (haut de page)
+\usepackage{fancyhdr} % package utilisé pour modifier les headers
+\pagestyle{fancy} % utiliser ses propres choix de mise en page et non ceux par défaut du package
+
+\setlength\headheight{16pt} % la hauteur des headers
+\renewcommand{\sectionmark}[1]{\markright{\small\textit{\thesection~\  #1}}} % Faire apparaître dans les headers les sections en petit et en italiques
+\renewcommand{\chaptermark}[1]{\markboth{\small\chaptername~\thechapter~--\ \textit{#1}}} % idem pour les chapitres
+
+% Package hyperref
+\usepackage[xetex]{hyperref} % Inclure hyperref une seule fois
+\hypersetup{
+    pdfauthor = {Prénom Nom},
+    pdftitle = {Titre du Document},
+    pdfsubject = {Mémoire HN},
+    pdfkeywords = {gestion des données, jumeau numérique, avion, patrimoine}, % Séparer les mots-clés par des virgules
+    colorlinks = false, % Pour que les liens n'aient pas de couleur
+    breaklinks = true, % Permet aux liens d'être sur plusieurs lignes
+}
+
+% Package bookmark, à mettre après hyperref
+\usepackage[numbered]{bookmark} % Les signets seront numérotés
+
+
+%%%%%%%%% GLOSSAIRE
+\usepackage[toc=true]{glossaries}%doit être appelé après hyperref 
+%(exception à la règle)
+\makeglossaries
+
+\newglossaryentry{foucault}{
+    name={Analyse par courant de foucault},
+    description={: L'analyse par courant de Foucault est une méthode qui utilise des courants électriques pour détecter des défauts à l'intérieur des matériaux sans les abîmer. Cette technique fonctionne comme une sorte de détecteur sophistiqué qui identifie des anomalies telles que des fissures ou des inclusions en mesurant comment les courants électriques se déplacent à travers le matériau. Lorsque le courant rencontre un défaut, il se comporte différemment, ce qui permet de localiser ces imperfections avec précision. Cette méthode est donc extrêmement utile pour inspecter des pièces ou des structures tout en préservant leur intégrité}
+}
+
+       \newglossaryentry{XRD}{
+    name={Analyse par diffraction des rayons X},
+    description={: Analyse la structure cristalline des matériaux pour identifier leur composition et leurs propriétés.La diffraction des rayons X (XRD) est une technique utilisée pour déterminer la structure cristalline des matériaux, autrement dit leur structure à l'échelle atomique. Le résultat de cette diffraction est un diffractogramme, un graphique qui montre l'intensité des rayons X diffractés en fonction de l'angle de diffraction et qui permet d'identifier la composition et les propriétés des matériaux en fournissant des informations sur la taille des cristallites, les phases présentes, et les déformations du réseau cristallin}
+}
+
+\newglossaryentry{EDS}{
+    name={Analyses spectroscopiques EDS ou EDX},
+    description={: Ces techniques utilisent des rayons X pour analyser les éléments d'un échantillon. Lorsqu'un échantillon est bombardé par des électrons, il émet des rayons X caractéristiques selon les éléments qui le constituent. En mesurant l'énergie de ces rayons X, on peut identifier les différents éléments présents dans le matériau. Cette technique permet de caractériser la composition élémentaire des matériaux}
+}
+
+\newglossaryentry{radionum}{
+    name={Analyse par radiographie numérique},
+    description={: La radiographie numérique est une technique d'examen qui utilise des rayons X pour créer des images détaillées de l'intérieur de structures et de matériaux, à l'image d'une sorte de radiographie moderne qui permet de voir ce qui se passe à l'intérieur sans avoir à ouvrir ou détruire l'objet examiné}
+}
+
+\newglossaryentry{Cloud}{
+    name={Cloud},
+    description={: Le Cloud Computing ou informatique en nuage est une infrastructure dans laquelle la puissance de calcul et le stockage sont gérés par des serveurs distants auxquels les usagers se connectent via une liaison Internet sécurisée}
+}
+
+\newglossaryentry{Endoscope}{
+    name={Endoscope},
+    description={: Cet outil permet de voir l'intérieur des zones difficiles d'accès en utilisant une petite caméra placée à l'extrémité d'un tube flexible. Il est couramment utilisé pour examiner les cavités et structures internes sans recourir à des méthodes invasives}
+}
+
+\newglossaryentry{LIBS}{
+    name={LIBS},
+    description={: Acronyme de Laser-Induced Breakdown Spectroscopy (Spectroscopie de Rupture Induite par Laser en français), cette méthode utilise un laser pour créer un petit éclat de plasma sur la surface de l'échantillon analysé. Ce plasma émet une lumière caractéristique des éléments présents dans l'échantillon. En analysant cette lumière (plus particulèrement ses émissions spectrales), on peut identifier les éléments chimiques et leur concentration. C'est une technique permettant de déterminer la composition chimique d'un matériau}
+}
+
+\newglossaryentry{Manipstat}{
+    name={Manipulations potentiostatiques},
+    description={: La manipulation potentiostatique est une technique en électrochimie où l'on maintient constant le voltage d'une électrode par rapport à une référence, tout en observant le courant généré. Cette méthode permet de mieux comprendre comment un matériau réagit à un certain voltage et de caractériser précisément les réactions électrochimiques, comme celles qui causent la corrosion, lorsque le voltage est fixe}
+}
+
+\newglossaryentry{Manipdyn}{
+    name={Manipulations potentiodynamiques},
+    description={: Cette méthode consiste à faire varier le voltage appliqué au métal de manière contrôlée, puis à mesurer le courant électrique qui en résulte. Cette méthode aide à voir comment la réactivité du métal change en fonction du voltage, et permet de comprendre comment il se corrode ou se protège dans différentes conditions}
+}
+
+\newglossaryentry{metado}{
+    name={Métadonnées},
+    description={Une métadonnée est une information descriptive qui apporte un éclairage supplémentaire sur une donnée principale. Elle agit comme une étiquette qui permet de mieux comprendre, organiser, et retrouver la donnée à laquelle elle se rapporte. Par exemple, dans le cas d'une photographie numérique, la métadonnée pourrait inclure des détails tels que la date de prise de vue, les paramètres de l'appareil photo, ou le lieu où la photo a été prise. C'est un outil de contextualisation qui enrichit la donnée brute, facilitant ainsi son utilisation et son exploitation.}
+}
+
+\newglossaryentry{MicroscopieBinoculaire}{
+    name={Microscopie binoculaire},
+    description={: Utilisée pour l'observation détaillée des échantillons à fort grossissement, cette technique a recours à un microscope possédant deux oculaires, ce qui lui permet une vision stéréoscopique et un meilleur confort pour l'utilisateur lors de l'examen de spécimens}
+}
+
+\newglossaryentry{MicroscopieOptique}{
+    name={Microscopie optique},
+    description={: Cette technique requiert un appareil qui utilise la lumière visible pour observer les échantillons. Il est largement utilisé pour examiner des spécimens translucides ou préparés sur des lames, permettant l'étude de structures à une échelle microscopique}
+}
+
+\newglossaryentry{MEB}{
+    name={Microscope électronique à balayage},
+    description={: Cette technique utilise un faisceau d'électrons (plutôt que la lumière visible) pour analyser les surfaces des échantillons à une résolution très élevée. Le microscope électronique à balayage permet d'obtenir des images détaillées de la topographie et de la composition des surfaces à un degré de précision plus élevé que celui d'un microscope optique}
+}
+
+\newglossaryentry{NAS}{
+    name={Serveur de stockage en réseau},
+    description={: Un serveur de stockage en réseau, également appelé stockage en réseau NAS, boîtier de stockage en réseau ou plus simplement NAS (de l'anglais Network Attached Storage), est un serveur de fichiers autonome, relié à un réseau, dont la principale fonction est le stockage de données en un volume centralisé pour des clients réseau hétérogènes}
+}
+
+\newglossaryentry{OUG}{
+    name={Ondes ultrasonores guidées},
+    description={: Une onde ultrasonore guidée est une technique avancée d’inspection non destructive qui utilise des ondes acoustiques pour détecter des défauts à l'intérieur des matériaux. Contrairement aux ondes ultrasonores ordinaires, qui se dispersent dans toutes les directions, les ondes guidées sont soigneusement orientées le long d'un trajet défini au sein du matériau. Ce contrôle précis de la propagation des ondes, réalisé à l'aide de méthodes spécialisées, permet d'obtenir une analyse plus détaillée et ciblée des structures examinées}
+}
+
+\newglossaryentry{SFX}{
+    name={Spectrométrie à fluorescence X},
+    description={: Cette technique permet de déterminer les éléments présents dans un échantillon. Lorsqu'un échantillon est exposé à des rayons X, il émet une fluorescence spécifique à chaque élément. En mesurant cette fluorescence, on peut ainsi identifier les éléments et leur concentration dans l'échantillon}
+}
+
+\newglossaryentry{Raman}{
+    name={Spectrométrie RAMAN},
+    description={: Cette technique permet d'identifier les molécules présentes dans un échantillon en étudiant la manière dont elles interagissent avec la lumière. Lorsqu'un laser éclaire un échantillon, la lumière est dispersée de manière spécifique par les molécules. En analysant les changements de fréquence de la lumière dispersée, on peut déterminer la structure et la composition moléculaire de l'échantillon}
+}
+
+\newglossaryentry{Table}{
+    name={Table},
+    description={: En modélisation relationnelle, une table est la structure qui stocke les données dans une base de données. Elle est composée de lignes et de colonnes. Chaque ligne représente un enregistrement (ou une instance) d'une entité, et chaque colonne représente un attribut (ou une caractéristique) de cette entité}
+}
+
+% COMMANDS
+\renewcommand{\chaptermark}[1]{\markboth{\small\chaptername~\thechapter~--\ \textit{#1}}{}}
+
+% Nouvelle commande pour les chapitres, qui permet d'avoir des titres d'en-tête plus courts, mais de garder les longs titres dans la table des matières
+
+\newcommand{\chapwithshorttitle}[3]{%
+  \chapter[#3]{#2}% #3 est utilisé pour la table des matières, #2 pour le corps du texte
+  \markboth{#1}{#1}% #1 est utilisé pour les en-têtes (gauche et droite)
+}
+
+% Nouvelle commande pour les sections, , qui permet d'avoir des titres d'en-tête plus courts
+\newcommand{\secwithshorttitle}[3]{%
+  \section[#3]{#2}% #3 est utilisé pour la table des matières, #2 pour le corps du texte
+  \markright{#1}% #1 est utilisé pour l'en-tête
+}
+
+% pour les remerciements, le résumé et l'introduction, afin qu'ils ne soient pas numérotés en tant que chapitre
+\newcommand\mychapter[1]{%
+  \chapter*{#1}%
+  \markright{\MakeUppercase{#1}}% for the header
+}
+
+% Définir le style de page sans en-tête
+\fancypagestyle{nohead}{
+    \fancyhf{} % Efface tous les en-têtes et pieds de page
+    \fancyfoot[C]{\thepage} % Numéros de page au centre du pied de page
+}
+% Définir une nouvelle commande pour appliquer le style sans en-tête
+\newcommand{\noheads}{
+    \pagestyle{nohead}
+}
+
+\title{Gestion et modélisation de la donnée en vue de la création d’un jumeau numérique d’avion}
+\author{Prénom Nom - M2 TNAH}
+
+%%%%%%% CORPS DU MÉMOIRE 
+
+\begin{document}
+
+\onehalfspacing 
+
+\frontmatter
+
+\include{templates/page-titre}
+
+\clearemptydoublepage
+
+\frontmatter
+
+\mychapter{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+Ce mémoire a été réalisé à l’occasion d’un stage au Musée de l'Air et de l'Espace d'avril à juillet 2024, dans le cadre du Master « Technologies numériques appliquées à l’histoire » de l’École des chartes. Il explore le concept de jumeau numérique, un outil destiné ici, à la fin du projet C-ADER, à en valoriser les résultats et centraliser les données. Ce mémoire expose la nécessité de questionner et clarifier le concept de jumeau numérique. Cette clarification de ce que doit être l'outil final a pour but d'assurer une meilleure compréhension des données et de la manière dont elles doivent, à terme, être exploitées. En effet, le jumeau numérique est un outil de valorisation qui implique de centraliser, harmoniser, partager et stocker les données au sein d'un projet. Dans cette optique de gestion des données, une réflexion propre à la modélisation et à l'architecture des données en question a été menée.\\
+
+This thesis was conducted during an internship at the Air and Space Museum from April to July 2024, as part of the Master’s program in ‘Digital Technologies Applied to History’ at the École des Chartes. It explores the concept of a digital twin, a tool intended here, at the conclusion of the C-ADER project, to enhance the outcomes and centralize the data. This thesis highlights the need to question and clarify the concept of a digital twin. The aim of clarifying what the final tool should be is to ensure a better understanding of the data and how it should ultimately be utilized. Indeed, the digital twin is a valorization tool that involves centralizing, harmonizing, sharing, and storing data within a project. In this context of data management, a specific reflection on the modeling and architecture of the data in question was carried out.\\
+
+\textbf{Mots-clés:} gestion des données~; jumeau numérique~; numérique~; avion~; patrimoine.
+
+\textbf{Informations bibliographiques:} Maddalena Accardo, \textit{Gestion et modélisation de la donnée en vue de la création d’un jumeau numérique d’avion}, mémoire de master \enquote{Technologies numériques appliquées à l'histoire}, dir. [Noms des directeurs.trices], École nationale des chartes, 2024.
+
+\clearemptydoublepage
+
+\mychapter{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+\lettrine{M}es remerciements vont tout d'abord à toutes les personnes, enseignants comme élèves, qui m'ont accompagné tout au long de cette seconde année de Master. Je tiens également à remercier chaleureusement Agnès Mirambet-Paris, François Mirambet, Léa Ferfailles et Marine Zelverte, pour leur suivi tout au long de ce stage très enrichissant, et pour leurs précieux conseils. Je souhaite également adresser mes remerciements au personnel des secteurs Documentation et Conservation du Musée de l'Air et de l'Espace, et du département Archives et bibliothèques du C2RMF pour leur accueil. Enfin, je remercie très vivement Ségolène Albouy pour ses conseils et son accompagnement tout au long de cette expérience. 
+
+\clearemptydoublepage
+
+\printbibliography[keyword={jumeauNumérique},title={Jumeau numérique}]
+\printbibliography[keyword={exemple},title={Exemples}]
+\printbibliography[keyword={gestionDonnee},title={Gestion des données}]
+\printbibliography[keyword={technique},title={Modélisation }]
+\printbibliography[keyword={divers},title={Divers}]
+
+\clearemptydoublepage
+
+\mychapter{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\lettrine{L}{'}L'exposition temporaire intitulée « Antoine de St Exupéry, fragments d'histoires » inaugurée le 28 mai 2024 au Musée de l'Air et de l'Espace, rend hommage au pilote et écrivain Antoine de St Exupéry. Son objectif est double. Elle dévoile d'une part la diversité de la carrière aéronautique de St Exupéry ainsi que ses contributions littéraires. D'autre part, elle met en avant les techniques et sciences qui sont mobilisées à l'heure actuelle pour l'étude, la conservation et la transmission des vestiges matériels de ce type. Ainsi, toute une section de l'exposition se concentre sur l'histoire de la découverte, l'identification et l'étude des fragments repêchés du P-38, l'avion à bord duquel Saint-Exupéry a disparu lors de sa dernière mission. Plusieurs pièces de l'avion, telles que la jambe du train d'atterrissage et le turbocompresseur ont en effet été retrouvées dans la Méditerranée et tirées des eaux avant d'être finalement exposés. Ces morceaux, très corrodés, ont fait l'objet de plusieurs traitements avant d'être mis en vitrine. À cette occasion, les travaux scientifiques d'analyse et de conservation des pièces, menés conjointement par le Musée de l’Air et de l’Espace, le Centre de restauration des musées de France (C2RMF) et l'Université de Lorraine sur ces éléments y sont présentés\footcite{ExpositiondossierAntoineSaintExupery2024}.
+
+Ce volet scientifique de l'exposition met en exergue un enjeu notable du patrimoine : comment conserver correctement des avions, et plus généralement les objets techniques et industriels ? Au même titre que des objets d'art plus classiques, à l'image de tableaux ou de sculptures, ces objets qu’il s’agisse d’avions, de dirigeables, ou de navires soulèvent les mêmes problématiques de conservation : comment conserver la composition d'un élément -témoin de son histoire-, tout en assurant qu'il reste dans un état optimal le plus longtemps possible ? À l'image d'un tableau dont le vernis viendrait obscurcir une toile et rend nécessaire une intervention, les avions se corrodent et se fragilisent.
+
+En effet, dans les musées présentant du patrimoine aéronautique, un constat a été prononcé. La majeure partie de leurs collections est constituée d'objets en aluminium. En aéronautique, il s'agit d'un matériau que l'on retrouve sur presque tous les types d'avions puisqu'il s’agit d’un des métaux les plus légers. Or, l’aluminium est particulièrement sensible à la corrosion. Celle-ci se manifeste par un effritement réduisant l'épaisseur du métal et compromettant sa solidité : on parle d'effeuillage de l'aluminium.
+
+Il n'existe pas à l'heure actuelle de produits ou de solutions permettant d'empêcher complètement le processus. Les techniques utilisées consistent soit à décaper complètement le métal, soit à utiliser des produits anti-corrosifs, soit à changer les pièces. Les compagnies aériennes choisissent de décaper complètement leurs appareils, voire de les remplacer complètement, et utilisent des peintures anti-corrosives. Il n'en est rien dans les musées. Décaper un objet dans un contexte de conservation historique est à l'heure actuelle impensable. Cela reviendrait à éliminer des couches de composition d'un objet susceptibles d'apporter des informations sur son histoire. Par exemple, décaper un avion des années 40-50 pourrait entraîner la disparition de traces de peintures originales susceptibles de contenir de riches informations sur les pigments ou les matériaux utilisés, et par extension sur les pratiques techniques d’une époque donnée. Le problème est donc réel : si décaper est exclu, la nécessité de pouvoir conserver les avions et autres objets en aluminium en freinant la corrosion reste tout de même d'actualité.
+
+Les pratiques de conservation ont longtemps reposé sur des approches réactives plutôt que préventives. Ainsi, au Musée de l’Air et de l’Espace, voilà 15 ou 20 ans, certains avions ayant subi une dégradation importante pouvaient faire l’objet d’un chantier de décapage et de remise en peinture, mais cela avait un coût très important et, par ailleurs, les normes environnementales et la législation sur le travail étant moins strictes, il était possible d’utiliser des produits polluants dans des conditions de sécurité réduites. De nos jours, les musées et institutions patrimoniales cherchent à adopter des méthodes permettant d’assurer la conservation des artefacts de format inhabituel à moindre coût et en minimisant l’impact environnemental. Dans le cas du Musée de l’Air et de l’Espace, cette nouvelle approche nécessite cependant de développer des méthodes de diagnostic de la corrosion des aéronefs. En effet, les techniques de diagnostic, principalement basées sur des inspections visuelles, sont encore limitées puisqu'elles nécessitent d’avoir un accès direct à la zone observée. Or, comment procéder lorsque la forme de l'objet n'est pas accessible, car creuse, ou que ses dimensions rendent l'opération délicate ? De plus, la plupart des techniques d'observation et d'analyse exigent que la taille de l'objet soit suffisamment petite pour qu'il soit transporté dans un laboratoire et étudié à l'aide d'appareils, rendant le processus quasi impossible (sauf sur des échantillons), faute d'appareils portables, lorsqu'il s'agit d'étudier des avions de quinze mètres d'envergure. 
+
+C'est pourquoi les conservateurs et restaurateurs sont confrontés au défi de rechercher de nouvelles techniques pour diagnostiquer le plus tôt possible la détérioration et la perte potentielle des propriétés mécaniques des pièces métalliques en aluminium, afin d'anticiper le processus de corrosion et de garantir une meilleure conservation de l'objet. 
+
+C'est dans ce cadre qu’a lieu le projet C-ADER, au sein duquel se déroule la mission de stage. Acronyme de Conservation of ancient Aircrafts : non-destructive Diagnosis of damagEs for a smart coRrosion protection, soit « Conservation d'aéronefs anciens : Diagnostic non-destructif des dommages pour une protection intelligente contre la corrosion » en français, ce projet fait référence à Clément Ader, pionnier de l’aviation\footcite{ClementAder2024}. Il vient en effet s’inscrire dans le domaine de l’aéronautique, et vise à surmonter les défis liés à la préservation des avions faisant partie du patrimoine technique et industriel touchés par la corrosion.
+
+Son objectif : étudier la composition de plusieurs avions choisis au Musée de l’Air et de l’Espace, et conservés aussi bien en intérieur qu'en extérieur, pour pouvoir développer des méthodes de diagnostic de l'état corrosif. L'enjeu est la détection des dommages microscopiques dans les alliages des avions, et la protection des structures aéronautiques contre la corrosion interne invisible à l'œil nu. Pour ce faire, le projet cherche à développer des techniques d'analyse de contrôle non destructif (CND) avancées. Ces outils et techniques sont destinés à être pérennisés et utilisés pour répondre aux besoins des spécialistes du patrimoine, conservateurs et restaurateurs. Dans la même visée, il s'agit d'étudier la qualité des espaces de conservation des avions, et leur influence sur la corrosion. Enfin, un autre objectif du projet est de mettre en place des outils numériques innovants pour gérer les données produites tout au long des analyses qui seront menées, ainsi que les archives et la documentation concernant les avions sélectionnés. Le but est de garantir la mise en commun et l'accessibilité de ces données, aboutissant à terme à leur valorisation. Un outil a été estimé capable de répondre à ces attentes : le jumeau numérique. Réplique virtuelle d'un objet, d'un système ou d'un processus physique, il est créé à l'aide de données variées autour d'une modélisation 3D. S’il est idéalement souhaité que tous les avions étudiés dans le cadre du projet disposent à la fin chacun d’un jumeau numérique, le premier appareil qui doit en bénéficier est un Boeing 707 appelé « château de Maintenon ».
+
+La plus-value d'un outil de ce genre est incontestable : il peut rendre toutes les données concernant un appareil accessibles en un point unique : des données scientifiques produites à l’instant T, aussi bien que des données plus anciennes relatives à l’histoire de l’avion se côtoieraient pour enrichir la connaissance de l’appareil. De plus, un jumeau numérique permet de préserver la mémoire de l'appareil grâce à sa modélisation 3D qui peut représenter la composition matérielle de l’objet si l’on choisissait de rentrer dans les détails. Dans le cas où la dégradation de l'appareil deviendrait trop prononcée au point d'en empêcher l'exposition, l’avion resterait ainsi en quelque sorte encore accessible. Le jumeau numérique répond donc à la fois à un besoin de valorisation, d’accessibilité et de conservation intéressant aussi bien pour les professionnels du musée et les acteurs du projet, que pour le grand public et les chercheurs intéressés par un avion. 
+
+Ces aspirations soulèvent néanmoins un certain nombre d'enjeux. Il s'agit tout d'abord d'établir une définition claire de ce qu'est un jumeau numérique et de ce que les acteurs du projet entendent par là. En effet, aucune définition officielle n'a été établie à ce jour, et le terme « jumeaux numériques » reste extrêmement vague, quoique très séduisant. Pour cela, il est nécessaire de clarifier les attentes des acteurs du projet vis-à-vis de l'outil numérique. Une double nécessité a été exprimée très rapidement : le partage des données dans un seul endroit pour permettre aux acteurs du projet de les exploiter pendant le déroulement du projet, et la valorisation de ces données et leur diffusion.
+
+ Le jumeau numérique viendrait refléter la nécessité de gérer les données tout au long du projet C-ADER, incarnant le besoin d'un outil de travail où déposer les données, et d’un outil de valorisation où l’information serait exploitée et mise en valeur. Au-delà de ces besoins, la nécessité d'harmoniser les données pour leur exploitation future semble également s'imposer, que ce soit pour faciliter leur intégration au cœur du jumeau numérique, ou bien pour permettre leur réutilisation dans un contexte de science ouverte.
+
+C’est dans le cadre de ce programme que s'inscrit le stage effectué au Musée de l'Air et de l'Espace du 2 avril au 25 juillet 2024. L'objectif à long terme est de participer à la gestion des données afin de voir aboutir le jumeau numérique. Le premier objectif de la mission de stage consistait à établir un état des lieux des données produites afin d'en prendre connaissance et de comprendre le processus de production de ces mêmes données ainsi que leurs spécificités. Toutes les informations concernant les avions sélectionnés pour le projet, qu'il s'agisse des données d’analyses, des plans, de la documentation, des tracts, etc. doivent être relevées afin de venir alimenter leur potentiel jumeau numérique. Cette phase doit permettre en second lieu l'élaboration d'une réflexion concernant l'harmonisation des données et des pratiques communes à mettre en œuvre entre les différents acteurs pendant la durée du projet tout en fluidifiant les échanges de données entre eux. En effet, il est fondamental d’assurer l’intégration et le partage des données scientifiques recueillies durant les quatre ans du projet. Cette phase permettra également d’anticiper des exigences de conservation des données sur le long terme, garantissant ainsi leur accessibilité et leur intégrité pour les futures recherches. Enfin, un des derniers objectifs de ce stage consistait à entamer une réflexion sur l'architecture et la mise en place technique du jumeau numérique. 
+
+On peut alors se demander comment le concept de jumeau numérique peut servir de pont entre la collecte, la valorisation et la conservation de données et objets scientifiques hétérogènes.
+
+Tout d'abord, une description du cadre général du projet va permettre d'offrir une vue d’ensemble historique et technique du concept de jumeau numérique, illustrée par des exemples d’applications concrètes, notamment dans les domaines industriel et patrimonial. Ensuite, un état des lieux des données à exploiter sera présenté en vue de la réalisation du jumeau numérique. L’accent sera mis sur l’importance de la gestion des données ainsi que sur les enjeux juridiques qu'elles soulèvent dans le cadre d'un projet de ce genre. Des propositions pour l’harmonisation des données et des solutions de stockage seront également abordées. Enfin, les solutions pour concevoir l’architecture du jumeau numérique et organiser les données seront discutées. Les principes de modélisation de l’outil, sa mise en valeur et les limites rencontrées seront détaillés, permettant ainsi de préciser la définition du jumeau numérique en fonction des besoins spécifiques du projet et du patrimoine.
+
+\clearemptydoublepage
+
+\mainmatter
+
+% Ajoute ici les différentes parties et chapitres de ton mémoire.
+\part{Le jumeau numérique : une technologie innovante au service du patrimoine aéronautique}
+    \include{templates/sectionI1}
+    
+     \clearemptydoublepage
+     
+    \include{templates/sectionI2} 
+    
+     \clearemptydoublepage
+     
+    \include{templates/sectionI3}
+            
+    \clearemptydoublepage
+
+
+\part{Gestion et traitement des données pour le jumeau numérique}
+    \include{templates/sectionII1}
+    
+    \clearemptydoublepage
+     
+    \include{templates/sectionII2}
+            
+  \clearemptydoublepage
+
+\part{Mise en œuvre du jumeau numérique, retour d'expérience et perspectives}
+    \include{templates/sectionIII1}
+    
+   \clearemptydoublepage
+     
+    \include{templates/sectionIII2}
+    
+  \clearemptydoublepage
+     
+    \include{templates/sectionIII3}
+            
+    \clearemptydoublepage
+
+\mychapter{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+Pour conclure, le projet C-ADER et la perspective d'un jumeau numérique permettent ainsi de soulever des enjeux multiples. Un premier, relatif à la difficulté de définir et identifier ce qu'est le jumeau numérique, surtout dans le domaine patrimonial, et un second, plus technique, qui relève d'un besoin de gestion des données avant leur valorisation et de la nécessité d'un espace commun entre les institutions du projet.\\
+
+La définition et l'utilisation des jumeaux numériques dans le cadre du patrimoine se distinguent nettement de leur application dans le secteur industriel. Un jumeau numérique utilisé dans un cadre patrimonial ne répond pas tant à un impératif d'analyse et de prévision, qu'à un besoin d'observation, de maintenance ou de reconstitution. C'est la raison pour laquelle un grand nombre d'outils sont appelés à tort "jumeaux numériques", et correspondant davantage à des éléments tels qu'un modèle ou une ombre numérique, dont les fonctionnalités répondent plus aux besoins patrimoniaux. On pourrait cependant élargir la confusion à d'autres domaines que le secteur de la culture, la définition du jumeau numérique étant encore complexe et multiple. La grande diversité des technologies similaires au jumeau numérique, ainsi que l'absence d'une définition consensuelle au sein de la communauté scientifique, contribuent à entretenir une certaine confusion quant à sa signification précise. Par conséquent, le choix du jumeau numérique pour valoriser le projet C-ADER s'inscrit également dans une tendance technologique actuelle, où les représentations visuelles et virtuelles jouent un rôle complémentaire dans la mise en valeur des données.\\
+
+Le jumeau numérique peut-être considéré comme le but final du projet C-ADER. Ainsi, toute proposition vise organiser les données produites afin de faciliter leur exploitation future. La volonté de recourir au type d'outil tel que le jumeau numérique cristallise un besoin d'agréger et d'échanger les données entre institutions partenaires et producteurs de données. Cela implique d'élaborer une politique d'harmonisation des fichiers qui seront produits et qui seront récoltés. La mise en place du plan de gestion de données en témoigne, de même que les réflexions relatives aux métadonnées. Enfin, la réflexion sur une plateforme de stockage et de partage des données vient faire culminer ce besoin d'agrégation et d'échange. Partir de la définition de ce qu'est un jumeau numérique permet également de poser les bases nécessaires à la gestions de données, pour d'ores et déjà les adapter aux besoins spécifiques de l'outil. Les modélisations conceptuelles et relationnelles sont ainsi réfléchies et conçues en fonction. Pour qu'outil numérique il y ait, il faut structurer la donnée dans une potentielle base de données.\\
+
+Pour l'avenir du projet C-ADER, plusieurs étapes clés se dessinent. L'achèvement de la plateforme de stockage et de partage constitue une priorité, de même que la mise en place de la base de données destinée à centraliser les documents produits. Il sera essentiel de sensibiliser les acteurs concernés à l'importance de la gestion des données, tout en concevant une base de données robuste et en sélectionnant les entrepôts appropriés pour leur conservation. Parallèlement, il sera important de rester attentif aux évolutions technologiques dans le domaine des objets patrimoniaux augmentés et du jumeau numérique, afin d’intégrer les dernières avancées dans le projet.
+
+\clearemptydoublepage
+
+\appendix % Appendices
+
+\backmatter % Glossaire, index, etc.
+
+\clearemptydoublepage 
+\printglossary
+\clearemptydoublepage 
+\listoffigures
+
+
+\clearemptydoublepage
+\tableofcontents
+\end{document}

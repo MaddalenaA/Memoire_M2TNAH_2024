@@ -1,0 +1,312 @@
+\chapwithshorttitle{Cartographie et harmonisation}{Cartographie et harmonisation des données du projet}{Cartographie et harmonisation des données du projet} 
+ 
+Pour répondre aux questionnements soulevés par le PGD, une phase préalable de prise de connaissance des données s'avère indispensable. Cet état des lieux des données produites va permettre par la suite de proposer des principes d'harmonisation pour nettoyer les données et anticiper leur utilisation future.
+
+    \secwithshorttitle{Données du projet C-ADER}{Inventaire des donnés du projet C-ADER}{Inventaire des donnés du projet C-ADER}  
+        \subsection{Données d’analyses produites dans le cadre du projet} 
+
+C-ADER étant un projet scientifique, la majeure partie des données produites sont issues d’analyses scientifiques, et apparaissent dans des formats spécifiques aux machines utilisées, ainsi qu’aux logiciels nécessaires pour les lires. En outre, l'examen de la corrosion d'un objet implique diverses méthodes d'analyses et d'observations, qui produisent chacune des types de données spécifiques.\\
+
+Un premier ensemble d’analyses vient contrôler l’état de la corrosion des objets étudiés.\\
+
+\begin{itemize}
+    \item L'analyse par radiographie numérique\footnote{Pour plus d'explications concernant cette analyse, voir ici : \gls{radionum}} est utilisée pour détecter des défauts, analyser des matériaux et inspecter des structures complexes sans les détruire. Les données sont produites au format .dcm, et les images sont principalement réutilisées dans les rapports et comptes-rendus.\\
+    \item L'analyse par courant de foucault\footnote{Pour plus d'explications concernant cette analyse, voir ici : \gls{foucault}} révèle des défauts comme des fissures ou des inclusions, permettant une inspection précise et non invasive des matériaux. Les images (.jpg) produites au terme de ces analyses sont elles aussi visibles dans les rapports et comptes-rendus.\\
+    \item Endoscope : Cet instrument permet l'inspection visuelle des zones internes difficiles d'accès grâce à une caméra placée à l'extrémité d'un tube flexible, et est couramment utilisé pour examiner les cavités et structures internes sans recourir à des méthodes invasives, et sans avoir à les ouvrir. Il produit des fichiers images (.bmp) ou des vidéos (.avi).\\
+    \item Capteurs de corrosion : Les capteurs de corrosion sont utilisés pour mesurer et surveiller le processus de corrosion des matériaux. Ils recueillent des données en temps réel sur la dégradation des matériaux, fournissant des informations cruciales sur la corrosivité de l'environnement. Les données brutes, généralement au format .mes, sont analysées et représentées sous forme de graphiques, souvent convertis en fichiers .csv.\\
+    \item Capteurs climatiques : Les capteurs climatiques enregistrent les données environnementales, telles que la température et l'humidité, afin d’en évaluer l’impact sur les matériaux. Ces capteurs permettent de surveiller les variations climatiques et de déterminer la stabilité des conditions de conservation. Les données recueillies sont compilées dans des fichiers PDF (.pdf), fournissant une documentation détaillée et accessible des conditions climatiques et leur influence potentielle sur les matériaux surveillés.\\
+    \item Photographies : Les photographies sont utilisées dans le but de documenter les analyses et les résultats. On trouve plus spécifiquement des photographies de l’évolution des coupons, prises dans un milieu donné pour observer les changements au fil du temps, des photographies à valeur documentaire, permettant de marquer les zones d'analyse spécifiques, et des photographies documentaires permettant de retenir des processus d’analyse, telles que la pose de capteurs à des endroits précis. Les formats de fichier varient en fonction des appareils photo et des méthodes employées, incluant des formats comme .jpg, .tiff, .rw2, et .bmp.\\
+\end{itemize}
+
+Un autre ensemble d’analyses vient se pencher sur la matérialité et la composition des matériaux étudiés. Les données d’analyses qui en découlent sont là aussi très largement des données scientifiques.\\
+
+\begin{itemize}
+    \item \gls{MicroscopieOptique} : Le microscope optique utilise la lumière visible pour examiner des échantillons. Il est largement utilisé pour examiner des spécimens translucides ou préparés sur des lames, permettant l'étude de structures à une échelle microscopique. Cet appareil produit des images (.jpg, .tiff).\\
+    \item \gls{MicroscopieBinoculaire} (éventuellement) : Il est employé pour examiner les détails fins des échantillons à fort grossissement, tels que les cellules ou les petits organismes. N'ayant pas encore été utilisé dans cette étude, le format des données qu'il produit demeure inconnu.\\
+    \item \gls{MEB} : Ce microscope utilise un faisceau d'électrons pour analyser les surfaces des échantillons à une résolution extrêmement élevée. Il permet d'obtenir des images détaillées de la texture et de la composition des surfaces. Là aussi, les données sont produites sous forme d’images (.bmp, .jpg, .tiff)\\
+    \item \gls{SFX} : Cette technique permet d'analyser la composition élémentaire. Elle permet ainsi d'identifier les éléments présents dans un échantillon et de déterminer leur concentration. Le format est pour l'instant inconnu.
+    \item \gls{EDS} : Cette méthode permet elle aussi de déterminer la composition élémentaire d'un matériau en analysant les rayons X qu'il émet. Les données qui en résultent sont des images (.jpg).\\
+    \item \gls{Raman} : Cette technique identifie les molécules présentes dans un échantillon en étudiant la manière dont les molécules interagissent avec la lumière d’un laser. Cela permet de déterminer la composition et la structure moléculaire de l'échantillon. On obtient à la fin de l’analyse des graphes (.tsf) ou des images (.txt).\\
+    \item \gls{LIBS} : La spectroscopie de plasma induit par laser (LIBS) utilise elle aussi un laser pour vaporiser une petite quantité de matière de l'échantillon, générant ainsi un plasma. Ce plasma émet des émissions spectrales spécifiques aux éléments chimiques présents dans l'échantillon. En analysant ces émissions spectrales, il est possible de déterminer la composition chimique des échantillons avec précision. Cette technique offre une méthode rapide pour déterminer la composition chimique des matériaux. Cependant, n'ayant pas encore été utilisée dans cette étude, le format des données produites reste à déterminer.\\
+    \item \gls{XRD} : Cette technique analyse la structure cristalline des matériaux pour identifier leur composition et leurs propriétés. Les données qui sont produites à la suite de cette analyse sont des graphes (d’abord en .raw, puis en .eva et enfin en .opj et .opju).\\
+\end{itemize}
+
+Un autre groupe d’analyses vient se greffer, qui consiste à effectuer des modifications sur le matériau lui-même, afin d’enclencher de nouveaux types d’analyses sur le processus de corrosion.\\
+
+\begin{itemize}
+    \item Mesures électrochimiques) : Les mesures électrochimiques, incluent deux types de manipulations : les manipulations potensiostatiques et potentiodynamiques\footnote{Pour plus d'informations, consulter le glossaire : \gls{Manipstat} et \gls{Manipdyn}}. Les deux impliquent l'utilisation d'un appareil appelé potensiostat pour contrôler et mesurer les réactions électrochimiques. Cette technique permet de déterminer les conditions de dégradation et la vitesse de corrosion. Ces mesures électrochimiques sont essentielles pour évaluer le comportement des alliages face à la corrosion et pour identifier les phénomènes électrochimiques impliqués. De plus, l'électrochimie permet d'élaborer des couches de corrosion de profondeurs variées en quelques heures seulement (mesures potensiostatiques). Dans le cadre du projet, cela consiste à reproduire de la corrosion sur les plaques d'aluminium, composées d’alliage 20-24 constitué d'aluminium et de cuivre, en y faisant des piqûres de taille et de profondeur différentes. On obtient d’abord un fichier .txt brut, qui est ensuite rentré dans un document excel (.xls) afin d’en obtenir des graphiques, qui sont ensuite travaillés sur Origin (.opj, .opju).\\
+\end{itemize}
+
+D’autres analyses ont pour but de retranscrire la matérialité de l’objet étudié :\\
+
+\begin{itemize}
+    \item Scanner numérique 3D : Le scanner numérique 3D permet d’acquérir des données tridimensionnelles complètes des objets ou des structures. Il est utilisé pour scanner des zones sélectionnées en fonction de leur état de corrosion. Les données obtenues sont initialement sous forme de nuages de points, souvent dans des formats tels que .stl et .3mf, puis converties en fichiers .step pour une analyse plus approfondie.\\
+    \item Imprimante 3D : L'imprimante 3D est utilisée pour réaliser des pièces sur mesure selon les besoins spécifiques des analyses. Le format de fichier couramment utilisé pour les impressions 3D est le .step.\\
+    \item Des modèles 3D d'avions : d'abord achetés, ils seront ensuite retravaillés pour être adaptés aux avions du projet C-ADER. Leur format est à ce jour inconnu.\\
+\end{itemize}
+
+Enfin, les données sont également générées dans le processus final de compte-rendu des analyses ou des conclusions tirées des résultats analysés.\\
+
+\begin{itemize}
+    \item Comptes-rendus : Les comptes-rendus sont des documents détaillant les résultats des analyses effectuées. Ils sont généralement rédigés sous forme de fichiers textes, disponibles dans des formats comme .docx ou .pdf.\\
+    \item Rapports : Les rapports sont des synthèses des observations et des conclusions basées sur les données collectées lors des diverses analyses. Ils peuvent également être composés de travaux lors de colloques ou d'autres événements académiques, souvent sous format .pptx.\\
+\end{itemize}
+
+La forte hétérogénéité des données qui vont être produites dans le cadre de ce projet constitue la particularité de ce corpus. 
+
+En outre, il existe autant de formats que de types de machines utilisées : les institutions productrices de données disposent pour la plupart de machines et de logiciels différents, qu'il s'agira de pouvoir reconnaître, dans le cas d'un futur chercheur souhaitant reproduire les expériences par exemple. De plus, certaines techniques n’ont pas encore été utilisées, et les machines ayant été acquises dans le cadre du projet n’ont jamais été manipulées non plus. Par conséquent, le format de certaines données est encore inconnu.\\
+
+En outre, les éléments analysés ne sont pas les mêmes d’un acteur à un autre. On trouve les trois principaux objets d’analyse : l’avion entier, des échantillons prélevés sur l’avion et ramené en laboratoire, et les mock-up. Ces éléments seront à prendre en compte et à indiquer si l'on souhaite regrouper les données par avion et plus précisément par type d'objet étudié.\\
+
+La donnée ainsi produite correspond à différentes étapes d’un même résultat d’analyse : on peut aussi bien conserver la donnée brute, que la supprimer, on peut aussi bien avoir des fichiers de donnée intermédiaire, ne servant qu’à aboutir à la donnée traitée et sur laquelle les résultats sont obtenus, comme ne garder que les dossiers finaux, qui eux seuls sont parlant.  En effet, la donnée brute est souvent traitée, grâce à des logiciels qui permettent de l’exploiter afin de retracer des graphes (on pense au logiciel Origin), ou bien grâce à un travail de nettoyage des photos (à reformuler pour éviter ambiguïté). Le traitement final de la donnée n’est pas la même entre les différents acteurs.
+
+        \subsection{Données préexistantes collectées et intégrées}
+
+Un autre grand type de données peut être recensé : des données préexistantes au projet, constituées de documents d’archives et de documentation. Les archives sont les documents relatifs aux avions conservés au Musée de l’Air et de l’Espace, et sur lesquels les analyses sont menées. Par opposition, la documentation concerne tous les documents et informations de tout type (technique, historique, administratif) relatifs à un modèle d’avion. Par exemple, les archives vont concerner le Boeing B707 « Château de Maintenon », alors que la documentation concernera le modèle de l’avion B707, et pourra s’appliquer aussi bien au « Château de Maintenon » qu'à l'autre avion du même modèle, le « Château de Dampierre ».\\
+
+Si le contenu des archives est encore à déterminer en fonction des fonds du Musée de l’Air et de l’Espace, ainsi que des fonds d’acteurs extérieurs disposant d’informations et de documents sur les avions étudiés, le contenu de la documentation est déjà relativement précis. Globalement, deux grands thèmes se dégagent : historique (des documents publicitaires ou des articles en rapport avec le modèle) et technique (des schémas, livrets d’instructions et autres documents relatifs à la maintenance d’un avion), qui se traduisent sous de multiples formes. On relève notamment les documents suivants, susceptibles de nourrir les connaissances existantes relatives aux avions du projet :\\
+
+\begin{itemize}
+    \item Livrets d'instruction, additif au livret d'instruction, résumé de livret d'instruction
+    \item Manuels de vol, manuels d'entretien en ligne, manuels d'utilisation, manuels d'opération et d'instruction
+    \item Notice technique, notice de révision
+    \item Récapitulatif de formation des techniciens
+    \item Schémas techniques
+    \item Fiches analytiques (suite à des travaux effectués)
+    \item Fiches d'anomalies techniques
+    \item Notices bibliographiques
+    \item Dossier d'œuvre, livres d'inventaire par typologie d'œuvres
+    \item Dossier d'inventaire
+    \item Documents arrivés avec l'avion
+    \item Fiches d’inventaire Micromusée
+    \item Documents produits par la communication : images et vidéos, films
+    \item Compte-rendu (d’approche, en vol airep, d’incident)
+    \item Plan de vol
+    \item Préparation et suivi de vol
+\end{itemize}
+
+        \subsection{Importance de la documentation des données}
+
+Afin de collecter ces informations, et de les organiser au mieux pour répondre aux exigences du plan de gestion, il a été jugé judicieux de réaliser des modélisations de processus, ou workflows, afin de bien comprendre la chaîne de production de la donnée et d’assimiler les types d’analyses avec les machines correspondantes et les données qui en résultent.\\
+
+Après de multiples échanges avec les quatre partenaires du projet C-ADER, des schémas ont été générés pour représenter les analyses scientifiques exécutées au cours du projet. Ils représentent dans l’ordre chronologique de création de la donnée les machines utilisées, mais également les logiciels et les types de fichiers produits.\\
+
+Si le choix a été fait de ne modéliser que les techniques d’analyses de façon générale, quel que soient les institutions qui y ont recours, la décision finale a tout de même été de réaliser un schéma par technique et par institution. En effet, pour une même analyse, les différents acteurs du projet n’ont pas les mêmes procédés, les mêmes outils et par conséquent les mêmes types de données qui résultent. C’est le cas par exemple des mesures électrochimiques effectuées par le C2RMF et l'Institut Jean Lamour. Cela explique le choix de schématiser chaque analyse scientifique réalisée par chaque acteur, afin de conserver un maximum d'informations et de constituer une documentation efficace et précise pour chaque acteurs du projet. Le but visé était d’être aussi précis que possible, et de permettre à des professionnels issus de différents domaines de comprendre la réalisation d’expériences scientifiques et les données qui en découlent. 
+
+    \secwithshorttitle{Harmonisation et standardisation}{Harmonisation et standardisation des pratiques}{Harmonisation et standardisation des pratiques}  
+
+Pour assurer qualité du futur jumeau ou outil numérique, il faut commencer par assurer la qualité de la donnée. Pour cela, plusieurs moyens sont mis en oeuvre afin d'assurer l'harmonisation et la gestion des données en question.
+
+        \subsection{relire) Etat des lieux des pratiques de traitement des données}
+
+Avant de proposer d’harmoniser les données, il est nécessaire de s’enquérir de l'état de la situation archivistique de chaque producteur de données pour savoir comment les informations produites sont habituellement stockées.\\
+
+Parmi les 4 acteurs du projet, seul le C2RMF dispose d'un pôle « archives et bibliothèque », et assure une politique d’archivage et d’harmonisation de ses données. Le Musée de l'Air et de l'Espace est quant à lui constitué d'un pôle documentation, mais sa politique en matière d'archives est très récente. L'Institut de Soudure et l’Institut Jean Lamour n'ont pas de service dédié au traitement des données. Par conséquent, c'est avec l'aide du C2RMF que pourra se constituer les réflexions concernant l'harmonisation des données.\\
+
+Pour la plupart des partenaires, aucun mode d’organisation ou de normalisation des données et des métadonnées n’a à ce stade été mis en place. Le renseignement des métadonnées sera à définir avec chaque partenaire dans les mois à venir. Seront proposés par le C2RMF un tableau de gestion ainsi qu’une charte de nommage sur lesquels il sera possible de se baser pour harmoniser la production des données entre les différents acteurs. Une liste de recommandation concernant les métadonnées sera également proposée.
+
+        \subsection{Mise en place d’un tableau de gestion et d’une nomenclature commune}
+
+            \subsubsection{Tableau de gestion}
+
+Un tableau de gestion est un outil qui permet de gérer les archives courantes et intermédiaires, en dressant un état de tous les documents produits et reçus par un service ou une institution, qu’ils soient sous une forme papier ou électronique. Il permet d’anticiper et d’organiser l’élimination ou la conservation des documents. Il ne doit pas être confondu avec le plan de gestion des données de la recherche (PGD), qui est spécifiquement conçu pour la gestion des données issues de projets de recherche scientifiques.\\
+
+Un tableau de gestion comprend des informations similaires à un PGD : les types de documents, leur durée de conservation, leur sort final (archivage définitif ou destruction), et les responsabilités associées à leur gestion. Néanmoins, il rentre davantage dans les détails, indiquant par exemple les noms des fichiers, des informations relatives à la production des données, ou des notions d’archivage. Il détermine les durées de conservation et les méthodes de destruction des documents en fonction des obligations légales et réglementaires. Les deux outils se chevauchent donc et se complètent pour venir enrichir la compréhension des données.\\
+
+Par conséquent, un plan de gestion a été entamé pour le projet C-ADER. Il se base sur des travaux précédents réalisés au C2RMF. Là aussi, le tableau de gestion vient fonctionner comme un outil qui suivra le projet tout au long de son déroulement.\\
+
+Le but est de détailler autant que possible un document, en indiquant à la fois la technique utilisée, le producteur de la donnée (sachant qu’une donnée très similaire mais produite par deux institutions différentes peut avoir une durée de conservation différente), et davantage d’informations sur la donnée produite. Des questions relatives à la durée de conservation et à l’élimination possible d’un document sont également prévues. Des détails relatifs aux principes de nommage, aux outils utilisés pour réaliser les conversions sont également à indiquer.\\
+
+Le choix a été fait de réaliser deux tableaux de gestion différents pour les données d’analyses et pour les données à récolter concernant les avions. Le tableau de gestion concernant la donnée préexistante aborde la donnée pratiquement de la même manière. Le seul élément qui les différencie est une colonne précisant à quel type d’avion se rapporte le document lorsqu'il s'agit de données préexistantes.
+
+            \subsubsection{Nomenclature}
+
+Disposer d’une nomenclature propre et homogène pour les fichiers permet d’appréhender le contenu d’un fichier avant même de l’ouvrir. La nomenclature doit être aussi simple et synthétique que possible. Il s’agit d’éviter les noms trop longs, qui alourdissent inutilement les fichiers.\\
+
+C’est donc un élément important qu’il faut établir dans le cadre du projet C-ADER. Jusque là, aucun nommage, hormis au C2RMF, n’a été réfléchi au sein des différentes institutions. Par conséquent, des propositions ont été formulées afin que la compréhension des fichiers soit aisée s’il est prévu de les déposer dans un outil partagé. Pour ce faire, il faut déterminer les informations les plus utiles et nécessaires à indiquer en fonction des différents types de fichiers créés.\\
+
+Une fois encore, il s’est révélé nécessaire de considérer séparément deux types de fichiers, ceux relatifs aux données de la recherche produites au cours du projet, et ceux adaptés aux documents conservés par le Musée de l’Air et de l’Espace ou d’autres acteurs extérieurs et concernant les archives ou la documentation des avions étudiés. Les nomenclatures seront donc conçues différemment, car répondant à des besoins différents.\\
+
+\begin{itemize}
+    \item[•] \textbf{Données d'analyse}
+\end{itemize}
+
+Tout d’abord, plusieurs types de documents produits dans le contexte des analyses scientifiques du projet C-ADER ont été répertoriés, chacun ayant besoin d’être nommés d’une manière spécifique. Il existe : les données d’analyses, c’est-à-dire les fichiers directement obtenus après une analyse, quel qu’elle soit ; les documents, tels que les rapports ou les comptes-rendus, qui seront principalement générés à la fin du projet C-ADER, mais aussi des photographies qui viendront documenter les processus, des données d’imagerie 3D et des données relatives à la veille sanitaire effectuée dans les bâtiments de conservation du Musée de l’air et de l’Espace. Les noms de fichiers seront donc adaptés en fonction.\\
+
+Plusieurs éléments ont été retenus comme devant être indiqués impérativement dans le nom des fichiers. Il s’agit de :\\
+\begin{itemize}
+    \item La date, 
+    \item L’institution qui a produit ce fichier, appelée « entité institutionnelle »
+    \item La typologie documentaire (s’il s’agit de données brutes ou non pour les données d’analyses, s’il s’agit de documents ou de rapport)
+    \item Le nom de l’avion étudié, voire la partie d’avion étudiée si les fichiers sont des données d’analyses et que l’objet étudié est un avion ou un échantillon d’avion.
+\end{itemize}
+
+D’autres éléments ont également été jugé importants de renseigner :\\
+\begin{itemize}
+    \item Le type d’analyse qui est menée, appelé « typedAnalyse »
+    \item Le type de données dont il s’agit, 
+    \item Le nom de l’objet analysé, 
+\end{itemize}
+
+En fonction de ces éléments, on peut proposer les nomenclatures suivantes.\\
+
+Les données d'analyse générales sont classées selon la nomenclature :\\ 
+
+\begin{center}
+\begin{adjustbox}{width=0.85\textwidth} 
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Données d'analyses (général)} \\ \hline
+\textbf{Date\_EntitéInstitutionnelle\_TypeAnalyse/ActionRéalisée\linebreak \_TypeObjetAnalysé\_NomAvion\_TypologieDocumentaire.} \\ \hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+Cette nomenclature couvre la date, l'entité institutionnelle, le type d'analyse ou d'action réalisée (la dénomination de cet élément est essentielle dans la nomenclature), le type d'objet analysé, le nom de l'avion (si l'objet est un avion ou un échantillon), et la typologie documentaire. Elle permet de structurer les données d'analyse en tenant compte du contexte et des spécificités de l'objet étudié.
+
+La nomenclature des données d’imagerie 3D (obtenues par le biais du scanner numérique 3D par exemple) est structurée de la même manière que celle des données d'analyse générales. La différence principale réside dans le type de données concernées, en l'occurrence l'imagerie 3D. Il faudra également s’interroger sur les modèles 3D qui ont été acquis par le Musée de l’Air et de l’Espace en vue de la préparation du jumeau numérique, et qui ne seront par conséquent pas des données d’analyses mais des données préexistantes : l’action réalisée ne sera pas à indiquer.\\
+
+Pour les documents tels que les rapports et les comptes-rendus, la nomenclature adoptée est la suivante :\\ 
+
+\begin{center}
+\begin{adjustbox}{width=0.85\textwidth} 
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Rapports et comptes-rendus} \\ \hline
+\textbf{Date\_EntitéInstitutionnelle\_TypologieDocumentaire\_NuméroDocument} \\ \hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+ Cette structure commence par la date du document, suivie de l'entité institutionnelle responsable, du type de document, et enfin d'un numéro unique pour l'identifier. Le terme « typologie documentaire » pourrait être discuté : il s’agit ici simplement d’indiquer s’il est question d’un rapport ou d’un compte-rendu, alors qu’il est utilisé dans la nomenclature des données d’analyses pour préciser s’il s’agit de données brutes, intermédiaires ou de données traitées. Il est par conséquent à retravailler.
+
+En ce qui concerne les photographies, la nomenclature est :\\ 
+
+\begin{center}
+\begin{adjustbox}{width=0.85\textwidth} 
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Photographies} \\ \hline
+\textbf{Date\_EntitéInstitutionnelle\_TypeAnalyse/ActionRéalisée\_TypeObjet\linebreak Analysé\_TypologieDocumentaire\_Numérotation} \\ \hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+Ici, la date, l'entité institutionnelle, le type d’analyse ainsi que le type d’objet analysé sont complétées par une numérotation permettant d’identifier la photographie. Le but est de documenter les circonstances spécifiques et les objets liés à chaque photographie.\\
+
+Enfin, pour les données de veille sanitaire, telles que les données de corrosion ou climatiques, la nomenclature proposée est :\\ 
+
+\begin{center}
+\begin{adjustbox}{width=0.85\textwidth} 
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Veille sanitaire} \\ \hline
+\textbf{Date\_EntitéInstitutionnelle\_LieuDeConservation\_NuméroIsolat\linebreak \_TypeAnalyse\_TypologieDocumentaire} \\ \hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+Cette structure inclut la date, l'entité institutionnelle, le lieu de conservation, un numéro d'isolat (si applicable) afin de bien discerner les types d’informations, le type d'analyse, et la typologie documentaire. La pertinence du numéro d'isolat pourrait être remise en question, dans la mesure où la date fournit déjà une information sur l’expérience.
+Il était d’usage d’indiquer dans le nom de fichier le type d’analyse réalisée, et l’objet utilisé ainsi que les différents traitements dont il a été l’objet. Il s’agira de réfléchir pour déterminer si ces informations ne pourraient pas être plutôt remplies dans les métadonnées que dans les noms de fichiers, dans le but d’éviter une nomenclature trop disparate ou trop longue.\\
+
+\begin{itemize}
+    \item[•] \textbf{Données préexistantes}
+\end{itemize}
+
+La caractéristique des données préexistantes, c’est-à-dire de la documentation générale liée aux avions ou aux archives du modèle possédé par le Musée de l’Air et de l’Espace, est qu’elles sont toutes liées à un avion particulier, et qu’il s’agit de documents de natures parfois très différentes.\\
+
+Les principaux éléments relevés et jugés impératifs pour le nommage de ce type de fichier sont :\\
+
+\begin{itemize}
+    \item  L’entité institutionnelle
+    \item L’avion concerné
+    \item La nature du document
+    \item S’il s’agit d’une archive ou de documentation
+    \item Un numéro incrémental attribué à chaque fichier 
+\end{itemize}
+
+Un autre élément peut aussi figurer dans la nomenclature de ces fichiers, lorsqu’il s’agira de documents issus principalement du Musée de l’Air et de l’Espace.\\
+
+\begin{itemize}
+    \item Le numéro inventaire du document, donné par le Musée de l’Air et de l’Espace ; cet élément ne concernera par conséquent pas tous les fichiers.
+    \item La date. Il ne s’agit pas ici forcément de la date de création du document, mais d’une date évoquée dans le contenu et jugée intéressante. Sa présence dans la nomenclature plutôt que dans les métadonnées est toutefois à rediscuter. 
+ \end{itemize}
+
+ Cette distinction supplémentaire va permettre d’anticiper la présence de documents issus d’autres institutions, et de mieux localiser les documents au sein du musée.\\
+
+ Par conséquent, la nomenclature de ces fichiers ressemblera à ceci :\\
+
+ \begin{center}
+\begin{adjustbox}{width=0.85\textwidth} 
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Données préexistantes (général)} \\ \hline
+\textbf{entiteInstitutionnelle\_avionConcerné\_natureDuDocument\linebreak \_archiveOuDocumentation\_NumInventaireDuDocument\_Numéro \linebreak Incrémental pour chaque dossier} \\ \hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+Si l’on souhaite rajouter une date, cela viendrait s’incruster dans la nomenclature non pas en début de document, puisqu’il ne s’agit pas de la date de création du fichier mais simplement d’une autre information, mais plutôt à la fin :\\ 
+
+ \begin{center}
+\begin{adjustbox}{width=0.85\textwidth} 
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+%\textbf{Données préexistantes (général)} \\ \hline
+\textbf{entiteInstitutionnelle\_avionConcerné\_natureDuDocument\linebreak \_archiveOuDocumentation\_NumInventaireDuDocument\linebreak \_date(si est intéressante pour le document)\_num incrémental pour chaque dossier} \\ \hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+Chaque information indiquée dans la nomenclature sera synthétisée sous la forme d’une abréviation pour s’assurer que le nom du fichier reste le plus synthétique possible. À terme, une documentation indiquant comment procéder au nommage des fichiers sera disponible.
+ 
+        \subsection{Elaboration d’un standard de métadonnées}
+
+De même que la nomenclature d’un fichier doit aider à comprendre son contenu, les métadonnées viennent éclaircir une donnée à plusieurs niveaux. Les métadonnées incluent désormais non seulement les éléments traditionnels comme l'auteur et le titre, mais aussi les descripteurs. Les documents ainsi identifiés sont appelés ressources. Le Dublin Core, format de métadonnées international soutenu par l'OAI, comprend 15 éléments de description qui couvrent des aspects formels (titre, créateur), thématiques (sujet, description), ainsi que les formats du document et les droits associés (source, type, langue, format, droit, identifiant). Ce format, très flexible, est adapté aux divers types de documents comme les textes, vidéos et sons. Pour être pleinement efficace, il doit s'appuyer sur des termes et notices d'autorités établis par les bibliothèques nationales, afin d'être à la fois compréhensible pour les moteurs de recherche et les utilisateurs humains\footcite{ortizGuidePourValorisation}.\\
+
+Une métadonnée est donc une donnée qui fournit de l’information sur une autre donnée. Il existe trois types de métadonnées dans le cadre d’un projet scientifique :\\
+
+\begin{itemize}
+    \item Des \textbf{métadonnées descriptives} fournissent des informations sur le contexte des données, comme qui les a créées, quand et où elles ont été enregistrées, et quels instruments ont été utilisés. Elles permettent d’identifier la propriété des données (instrument, emplacement géographique etc.).
+    \item Des \textbf{métadonnées structurelles} qui correspondent aux renseignements sur la façon dont la donnée est enregistrée dans un fichier. Elles décrivent par exemple le format du fichier, la structure interne, et les relations entre différentes parties des données.
+    \item Des \textbf{métadonnées qualités}, qui fournissent des informations sur la fiabilité et la précision des données. Elles aident à évaluer la qualité des données en indiquant des aspects tels que les erreurs possibles, les données manquantes, et les biais potentiels.
+\end{itemize}
+
+L’enjeu de ces métadonnées n’est pas seulement de s’assurer que la donnée soit de qualité. C’est aussi le moyen d’assurer à un potentiel futur chercheur, ou tout simplement à un acteur du projet souhaitant obtenir les mêmes résultats d’une expérience la possibilité de le faire.\\
+
+Il est intéressant, en guise d’exemple, d’étudier les métadonnées descriptives qui ont été proposées dans le cadre du projet C-ADER. Celles-ci doivent enrichir les fichiers d’expériences, afin de documenter les traitements effectués sur un même objet avant son analyse. Les métadonnées doivent fournir des détails sur les conditions d’utilisation des appareils et les choix méthodologiques ayant conduit aux résultats, conservant ainsi toutes les informations pertinentes sur la réalisation de chaque expérience. Il est donc essentiel de spécifier pour chaque expérience les mesures, les temporalités, et autres données importantes permettant de reproduire les conditions opératoires et d’obtenir des résultats similaires. Un des éléments les plus importants à notifier est le type de traitement qu’un objet a déjà subi ; une analyse réalisée sur un mock-up corrodé ne donnera pas les mêmes résultats que si elle est réalisée sur un mock-up intact.\\
+
+Les métadonnées considérées comme les plus essentielles sont celles nécessaires pour reproduire l'analyse dans les conditions opératoires adéquates, afin d’obtenir les mêmes résultats. Il s’agit des informations suivantes :\\
+
+\begin{itemize}
+    \item La date de réalisation de l’analyse ;
+    \item Le nom de l’institution ;
+    \item Le type d’objet analysé (échantillon prélevé, avion, ou mock up) ;
+    \item Si le matériau a subi un traitement préalable avant cette expérience qui a changé sa composition, il est nécessaire de l’indiquer. Il n'est pas certain que cette information ne soit pas également indiquée dans le nom des fichiers ; il s'agira de déterminer sur quel élément cette information figurera. En théorie, il serait peut-être plus utile de l'y faire figurer ici, mais en pratique les producteurs de données seraient plus à même de l'indiquer sur le nom de leurs fichiers. 
+    \item La composition du matériau utilisé (par exemple, aluminium 2024 pour les matériaux synthétiques).
+\end{itemize}
+
+D’autres métadonnées peuvent également être indiquées, et sont à adapter en fonction des types d’analyses effectuées.\\
+\begin{itemize}
+    \item Il peut s’agir d’autres conditions opératoires nécessaires pour réaliser l’expérience, et particulières à chaque analyse, telles que le nom du matériel utilisé, ou le réglage du matériel utilisé. Ces métadonnées sont parfois remplies automatiquement par le logiciel ou la machine utilisée.
+    \item Le nom de l'avion, le nom de la zone de travail sur l'avion, et la zone analysée. Ces précisions visent à pouvoir exploiter les données et les localiser précisément sur la future modélisation de l’avion.
+    \item Dimensions (largeur, hauteur) du matériau utilisé.
+    \item Pour le cas particulier de la réalisation des piqûres de corrosion réalisées sur les mock-up, il est important d’indiquer où elles sont placées, ainsi que leur taille.
+\end{itemize}
+
+Un point important à prendre en compte concerne la diversité des objets d’analyse. En effet, les métadonnées à remplir peuvent différer selon le type d’élément analysé : un avion, un échantillon d’avion, ou un mock-up.\\
+
+Si on travaille sur un échantillon d’avion, il convient d’indiquer :\\
+
+\begin{itemize}
+    \item Le nom de l’avion analysé
+    \item La région d’analyse étudiée (cette étape est encore en discussion, quoiqu’il soit incertain que cette information soit conservée car difficile à documenter) 
+\end{itemize}
+
+Si on travaille sur un mock-up synthétique, il faut indiquer le nom du mock-up (qu’il s’agira de proposer ultérieurement) afin de pouvoir les différencier, et sa composition dans la mesure où il existera plusieurs types d'alliages utilisés.\\
+
+Il est important de souligner qu’il s’agit principalement ici d’un début de réflexion. Cela explique pourquoi la plupart des analyses n’ont pas encore été traitée. De plus, le souhait d’avoir une description des traitements qui ont été effectué sur un objet analysé précis a été émis à plusieurs reprise. En effet, la coutume dans les laboratoires est de noter ces informations sur le nom du fichier lui-même, indiquant ainsi l’expérience effectué ainsi que l’objet étudié. Il faut voir dans quelle mesure ces informations peuvent être indiquées sur les métadonnées directement, afin d’avoir des nomenclatures plus propres. Globalement, pour que les métadonnées soient de qualité, il faut remplir les conditions opératoires d’une analyse, la composition de l’objet traité sur un même fichier, et le nom de l’objet pour le relocaliser.\\
+
+On remarque alors que la réflexion concernant les métadonnées des données préexistantes, à savoir les archives et la documentation relatives à un avion n’a pas été évoqué ici. A ce sujet, il a été pour l’instant seulement question d’indexation, mais les modalités de réalisation n’ont pas encore été décidées.\\
+
+Une fois l'harmonisation des données entamée, il est intéressant de réfléchir à la structuration et au stockage concret des données pour ensuite porter un regard critique sur le travail effectué ? Quels constats ont été fait pendant le traitement du corpus vis-à-vis de la conception du jumeau numérique comme outil patrimonial ?
